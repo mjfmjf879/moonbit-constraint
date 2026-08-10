@@ -1,0 +1,86 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "mengjiafu/moonbit_constraint"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn all_different(Array[Int]) -> Constraint
+
+pub fn domain(Int, Int) -> Domain
+
+pub fn element(Int, Array[Int], Int) -> Constraint
+
+pub fn equal(Int, Int) -> Constraint
+
+pub fn greater_equal(Int, Int) -> Constraint
+
+pub fn greater_than(Int, Int) -> Constraint
+
+pub fn less_equal(Int, Int) -> Constraint
+
+pub fn less_than(Int, Int) -> Constraint
+
+pub fn new_solver() -> Solver
+
+pub fn not_equal(Int, Int) -> Constraint
+
+pub fn sum(Array[Int], Int) -> Constraint
+
+pub fn variable(String, Int, Int) -> Variable
+
+// Errors
+
+// Types and methods
+pub enum Constraint {
+  Equal(Int, Int)
+  NotEqual(Int, Int)
+  LessThan(Int, Int)
+  LessEqual(Int, Int)
+  GreaterThan(Int, Int)
+  GreaterEqual(Int, Int)
+  AllDifferent(Array[Int])
+  Sum(Array[Int], Int)
+  Element(Int, Array[Int], Int)
+} derive(@debug.Debug)
+
+pub struct Domain {
+  lower : Int
+  upper : Int
+  mut removed : Array[Int]
+} derive(@debug.Debug)
+pub fn Domain::assign(Self, Int) -> Bool
+pub fn Domain::contains(Self, Int) -> Bool
+pub fn Domain::is_singleton(Self) -> Bool
+pub fn Domain::max(Self) -> Int?
+pub fn Domain::min(Self) -> Int?
+pub fn Domain::remove(Self, Int) -> Bool
+pub fn Domain::size(Self) -> Int
+pub fn Domain::values(Self) -> Array[Int]
+
+pub struct Solution {
+  values : Array[Int]
+} derive(@debug.Debug)
+pub fn Solution::get(Self, Int) -> Int
+
+pub struct Solver {
+  variables : Array[Variable]
+  constraints : Array[Constraint]
+  mut max_solutions : Int
+}
+pub fn Solver::add_constraint(Self, Constraint) -> Unit
+pub fn Solver::add_variable(Self, Variable) -> Int
+pub fn Solver::limit(Self, Int) -> Unit
+pub fn Solver::solve(Self) -> Solution?
+pub fn Solver::solve_all(Self) -> Array[Solution]
+
+pub struct Variable {
+  name : String
+  domain : Domain
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+
