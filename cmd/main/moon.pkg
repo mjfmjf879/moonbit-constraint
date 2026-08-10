@@ -3,7 +3,7 @@
 // }
 
 import {
-  "mengjiafu/moonbit_constraint" @constraint,
+  "mjfmjf/moonbit_constraint" @constraint,
 }
 
 options(

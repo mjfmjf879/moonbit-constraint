@@ -9,13 +9,13 @@
 //   "moonbitlang/x@0.4.6",
 // }
 
-name = "mengjiafu/moonbit_constraint"
+name = "mjfmjf/moonbit_constraint"
 
 version = "0.1.0"
 
 readme = "README.mbt.md"
 
-repository = ""
+repository = "https://github.com/mjfmjf879/moonbit-constraint"
 
 license = "Apache-2.0"
 

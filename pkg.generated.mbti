@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "mengjiafu/moonbit_constraint"
+package "mjfmjf/moonbit_constraint"
 
 import {
   "moonbitlang/core/debug",

@@ -1,5 +1,7 @@
 # moonbit-constraint
 
+项目仓库：[GitHub](https://github.com/mjfmjf879/moonbit-constraint) · [GitLink](https://gitlink.org.cn/mjfmjf/moonbit-constraint)
+
 面向排班、资源分配、数独、配置生成和组合优化的 MoonBit 有限域约束求解器。
 
 当前版本提供整数区间域、命名变量、等式/不等式约束、`AllDifferent`、`Sum`、`Element`、解空间枚举和 MRV（最小剩余值）分支。求解器保持纯 MoonBit 实现，没有外部运行时依赖，适合作为库嵌入命令行工具、服务端或领域应用。
