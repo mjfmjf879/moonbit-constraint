@@ -1,0 +1,11 @@
+// import {
+//   "mengjiafu/moonbit_constraint" @lib,
+// }
+
+import {
+  "mengjiafu/moonbit_constraint" @constraint,
+}
+
+options(
+  "is-main": true,
+)
