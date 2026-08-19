@@ -19,7 +19,12 @@ repository = "https://github.com/mjfmjf879/moonbit-constraint"
 
 license = "Apache-2.0"
 
-keywords = [ ]
+keywords = [
+  "constraint-programming",
+  "finite-domain",
+  "scheduling",
+  "optimization",
+]
 
 preferred_target = "wasm-gc"
 
