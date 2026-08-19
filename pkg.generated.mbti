@@ -6,33 +6,614 @@ import {
 }
 
 // Values
+pub fn absolute(Int, Int) -> Constraint
+
 pub fn all_different(Array[Int]) -> Constraint
+
+pub fn all_different_pairs(Array[Int]) -> ConstraintSet
+
+pub fn allowed_rows(Array[Int], Array[Array[Int]]) -> ConstraintSet
+
+pub fn allowed_values(Int, Array[Int]) -> Constraint
+
+pub fn alternating_binary_sequence(Int) -> SequenceModel?
+
+pub fn arithmetic_relation(Domain, Domain, (Int, Int) -> Int) -> RelationTable?
+
+pub fn arithmetic_result_domain(Domain, Domain, (Int, Int) -> Int) -> Domain?
+
+pub fn arithmetic_scenario() -> Scenario
+
+pub fn assignment_problem(Int, Int, Array[Array[Int]]) -> AssignmentProblem?
+
+pub fn assumption(Int, Int) -> Assumption
+
+pub fn assumptions() -> AssumptionSet
+
+pub fn assumptions_from(Array[Assumption]) -> AssumptionSet
+
+pub fn at_least_value(Array[Int], Int, Int) -> Constraint
+
+pub fn at_most_value(Array[Int], Int, Int) -> Constraint
+
+pub fn balanced_schedule(Int, Int, Int) -> ScheduleProblem?
+
+pub fn benchmark_coloring(Int, Int) -> BenchmarkResult
+
+pub fn benchmark_fingerprint(Array[BenchmarkResult]) -> String
+
+pub fn benchmark_knapsack() -> BenchmarkResult
+
+pub fn benchmark_latin(Int) -> BenchmarkResult
+
+pub fn benchmark_markdown(Array[BenchmarkResult]) -> String
+
+pub fn benchmark_n_queens(Int) -> BenchmarkResult
+
+pub fn benchmark_report(Array[BenchmarkResult]) -> String
+
+pub fn benchmark_result(String, Bool, Int, SearchStats, Int) -> BenchmarkResult
+
+pub fn benchmark_schedule() -> BenchmarkResult
+
+pub fn benchmark_sudoku() -> BenchmarkResult
+
+pub fn benchmark_suite() -> Array[BenchmarkResult]
+
+pub fn benchmark_work(Array[BenchmarkResult]) -> Int
+
+pub fn benchmarks_pass(Array[BenchmarkResult]) -> Bool
+
+pub fn best_heuristic(Array[HeuristicResult]) -> HeuristicResult?
+
+pub fn best_heuristic_nodes(Array[HeuristicResult]) -> Int?
+
+pub fn between(Int, Int, Int) -> Constraint
+
+pub fn bin_packing(Array[Int], Int, Int) -> BinPacking?
+
+pub fn binary_sequence(Int, Int) -> SequenceModel?
+
+pub fn binary_transitions() -> Array[Array[Int]]
+
+pub fn boolean_circuit() -> BooleanCircuit
+
+pub fn boolean_domain() -> Domain
+
+pub fn boolean_scenario() -> Scenario
+
+pub fn boolean_truth_table(String) -> Array[Array[Int]]?
+
+pub fn boolean_variable(Solver, String) -> Int
+
+pub fn calendar_chain(Array[Int], Int) -> CalendarModel?
+
+pub fn calendar_model(Int, Int) -> CalendarModel?
+
+pub fn capacity_constraint(Array[(Int, Int, Int)], Int) -> ConstraintSet
+
+pub fn classic_solution_string() -> String
+
+pub fn classic_sudoku() -> Sudoku?
+
+pub fn clique_lower_bound(Array[Int]) -> Int
+
+pub fn coloring_scenario() -> Scenario
+
+pub fn complete_coloring(Int) -> GraphColoring?
+
+pub fn constraint_info(Constraint) -> ConstraintInfo
+
+pub fn constraint_kind(Constraint) -> ConstraintKind
+
+pub fn constraint_label(Constraint) -> String
+
+pub fn constraint_set() -> ConstraintSet
+
+pub fn constraint_variables(Constraint) -> Array[Int]
+
+pub fn count_bundle(Array[Int], Int, Int) -> ConstraintSet
+
+pub fn count_value(Array[Int], Int, Int) -> Constraint
+
+pub fn cumulative(Array[(Int, Int, Int)], Int) -> Constraint
+
+pub fn cycle_coloring(Int, Int) -> GraphColoring?
+
+pub fn cyclic_different(Array[Int]) -> ConstraintSet
+
+pub fn decision_step(Int, Int, Bool, Int) -> DecisionStep
+
+pub fn decision_trace() -> DecisionTrace
+
+pub fn default_model_limits() -> ModelLimits
+
+pub fn default_search_config() -> SearchConfig
+
+pub fn descending_value_config() -> SearchConfig
+
+pub fn distance(Int, Int, Int) -> Constraint
 
 pub fn domain(Int, Int) -> Domain
 
+pub fn domain_add(Domain, Domain) -> Domain?
+
+pub fn domain_csv(Domain) -> String
+
+pub fn domain_difference(Domain, Domain) -> Domain?
+
+pub fn domain_from_values(Array[Int]) -> Domain
+
+pub fn domain_intersection(Domain, Domain) -> Domain?
+
+pub fn domain_interval(Int, Int) -> DomainInterval
+
+pub fn domain_over_degree_config() -> SearchConfig
+
+pub fn domain_subtract(Domain, Domain) -> Domain?
+
+pub fn domain_union(Domain, Domain) -> Domain
+
+pub fn eight_queens_solution() -> String?
+
 pub fn element(Int, Array[Int], Int) -> Constraint
 
+pub fn empty_search_stats() -> SearchStats
+
+pub fn empty_sudoku() -> Sudoku
+
 pub fn equal(Int, Int) -> Constraint
+
+pub fn exactly_k(Array[Int], Int) -> ConstraintSet
+
+pub fn exhaustive_search_config(Int) -> SearchConfig
+
+pub fn feature_selection(Int, Int) -> Solver?
+
+pub fn first_solvable_n_queens(Int, Int) -> Int?
+
+pub fn first_unassigned_config() -> SearchConfig
+
+pub fn flow_shop(Array[(String, Int, Int)], Int) -> ResourceSchedule?
+
+pub fn graph_coloring(Int, Int, Array[(Int, Int)]) -> GraphColoring?
 
 pub fn greater_equal(Int, Int) -> Constraint
 
 pub fn greater_than(Int, Int) -> Constraint
 
+pub fn grid_coloring(Int, Int, Int) -> GraphColoring?
+
+pub fn group_bounds(Array[Int], Int, Int) -> ConstraintSet
+
+pub fn heuristic_markdown(Array[HeuristicResult]) -> String
+
+pub fn heuristic_result(String, Int, SearchStats) -> HeuristicResult
+
+pub fn heuristics_agree(Array[HeuristicResult]) -> Bool
+
+pub fn increasing_chain(Array[Int]) -> ConstraintSet
+
+pub fn interval_cover(Int, Array[(Int, Int)]) -> SetCovering?
+
+pub fn knapsack(Array[String], Array[Int], Array[Int], Int) -> Knapsack?
+
+pub fn latin_square(Int) -> LatinSquare?
+
 pub fn less_equal(Int, Int) -> Constraint
 
 pub fn less_than(Int, Int) -> Constraint
 
+pub fn less_than_table(Array[Int]) -> RelationTable?
+
+pub fn linear(Array[(Int, Int)], Int) -> Constraint
+
+pub fn linear_builder() -> LinearBuilder
+
+pub fn linear_greater_equal(Array[(Int, Int)], Int) -> Constraint
+
+pub fn linear_less_equal(Array[(Int, Int)], Int) -> Constraint
+
+pub fn magic_square(Int) -> MagicSquare?
+
+pub fn matrix_all_different(Array[Array[Int]], Int, Int) -> ConstraintSet?
+
+pub fn matrix_sum_constraints(Array[Array[Int]], Int, Int, Int, Int) -> ConstraintSet?
+
+pub fn maximize() -> OptimizationDirection
+
+pub fn maximum(Array[Int], Int) -> Constraint
+
+pub fn maximum_degree_config() -> SearchConfig
+
+pub fn median_value_config() -> SearchConfig
+
+pub fn minimize() -> OptimizationDirection
+
+pub fn minimum(Array[Int], Int) -> Constraint
+
+pub fn model_limits(Int, Int, Int) -> ModelLimits
+
+pub fn n_queens(Int) -> NQueens?
+
+pub fn n_queens_with_first_column(Int, Int) -> NQueens?
+
+pub fn new_model() -> ModelBuilder
+
 pub fn new_solver() -> Solver
+
+pub fn no_overlap(Array[(Int, Int)]) -> Constraint
+
+pub fn non_attacking_diagonals(Array[Int]) -> ConstraintSet
+
+pub fn non_overlapping_intervals(Array[(Int, Int)]) -> ConstraintSet
+
+pub fn nondecreasing_chain(Array[Int]) -> ConstraintSet
+
+pub fn not_distance(Int, Int, Int) -> Constraint
 
 pub fn not_equal(Int, Int) -> Constraint
 
+pub fn not_equal_table(Array[Int]) -> RelationTable?
+
+pub fn objective(Array[ObjectiveTerm]) -> Objective
+
+pub fn objective_from_directions(Array[Int], Array[OptimizationDirection]) -> Objective?
+
+pub fn objective_term(Int, OptimizationDirection, Int) -> ObjectiveTerm
+
+pub fn one_hot(Array[Int]) -> ConstraintSet
+
+pub fn parse_domain(String) -> Domain?
+
+pub fn parse_integer_list(String) -> Array[Int]?
+
+pub fn parse_integer_sequence(String) -> Array[Int]?
+
+pub fn post_absolute_table(Solver, Int, Int, Domain) -> Unit
+
+pub fn post_addition(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn post_arithmetic_relation(Solver, Int, Int, Int, Domain, Domain, (Int, Int) -> Int) -> Bool
+
+pub fn post_assignments(Solver, Array[Int], Array[Int]) -> Bool
+
+pub fn post_at_most_one(Solver, Array[Int]) -> Unit
+
+pub fn post_binary_table(Solver, Int, Int, RelationTable) -> Bool
+
+pub fn post_boolean_and(Solver, Int, Int, Int) -> Unit
+
+pub fn post_boolean_equivalent(Solver, Int, Int) -> Unit
+
+pub fn post_boolean_implies(Solver, Int, Int) -> Unit
+
+pub fn post_boolean_not(Solver, Int, Int) -> Unit
+
+pub fn post_boolean_or(Solver, Int, Int, Int) -> Unit
+
+pub fn post_boolean_xor(Solver, Int, Int, Int) -> Unit
+
+pub fn post_chain_not_equal(Solver, Array[Int]) -> Unit
+
+pub fn post_clause(Solver, Array[(Int, Bool)]) -> Bool
+
+pub fn post_division_table(Solver, Int, Int, Int, Domain, Domain) -> Bool
+
+pub fn post_exactly_k(Solver, Array[Int], Int) -> Unit
+
+pub fn post_exactly_one(Solver, Array[Int]) -> Unit
+
+pub fn post_maximum_table(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn post_minimum_table(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn post_modulo_table(Solver, Int, Int, Int, Domain, Domain) -> Bool
+
+pub fn post_pairwise_different(Solver, Array[Int]) -> Unit
+
+pub fn post_product(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn post_reified_equal(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn post_reified_less_than(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn post_relation_pairs(Solver, Int, Int, Domain, Domain, (Int, Int) -> Bool) -> Bool
+
+pub fn post_subtraction(Solver, Int, Int, Int, Domain, Domain) -> Unit
+
+pub fn probe_batch() -> ProbeBatch
+
+pub fn quota_sequence(Int, Int, Int, Int, Int) -> SequenceModel?
+
+pub fn relation_pairs(Domain, Domain, (Int, Int) -> Bool) -> Array[Array[Int]]
+
+pub fn relation_table(Array[Array[Int]]) -> RelationTable?
+
+pub fn render_integer_sequence(Array[Int]) -> String
+
+pub fn repeat_benchmark(String, Int, () -> BenchmarkResult) -> BenchmarkResult
+
+pub fn resource_scenario() -> Scenario
+
+pub fn resource_schedule(Int, Int) -> ResourceSchedule?
+
+pub fn roster_model(Int, Int, Int) -> RosterModel?
+
+pub fn rotating_roster(Int, Int) -> RosterModel?
+
+pub fn rotating_schedule(Int, Int, Int) -> ScheduleProblem?
+
+pub fn scenario(String, Solver, Int) -> Scenario
+
+pub fn scenario_report(Int) -> String
+
+pub fn scenario_suite() -> Array[Scenario]
+
+pub fn scenarios_pass(Int) -> Bool
+
+pub fn schedule_from_pattern(Int, Array[Array[Int]]) -> ScheduleProblem?
+
+pub fn schedule_preference(Int, Int, Int, Int) -> SchedulePreference
+
+pub fn schedule_scenario() -> Scenario
+
+pub fn score_preferences(Solution, Array[Int], Array[Int], Array[Int]) -> Int
+
+pub fn scored_solution(Solution, Int, Int) -> ScoredSolution
+
+pub fn sequence_model(Int, Int, Int) -> SequenceModel?
+
+pub fn sequence_summary(Array[Int]) -> SequenceSummary?
+
+pub fn set_covering(Int, Array[Array[Int]], Array[Int]) -> SetCovering?
+
+pub fn single_objective(Int, OptimizationDirection) -> Objective
+
+pub fn singleton_domain(Int) -> Domain
+
+pub fn snapshot_assume(ModelSnapshot, AssumptionSet) -> ModelSnapshot?
+
+pub fn snapshot_assumptions(ModelSnapshot) -> AssumptionSet
+
+pub fn snapshot_deltas(ModelSnapshot, ModelSnapshot) -> Array[DomainDelta]
+
+pub fn snapshots_equal(ModelSnapshot, ModelSnapshot) -> Bool
+
+pub fn solution_delta(Solution, Solution) -> Array[SolutionDelta]
+
+pub fn solution_delta_report(Solution, Solution) -> String
+
+pub fn solution_distance(Solution, Solution) -> Int
+
+pub fn solution_values(Solution) -> Array[Int]
+
+pub fn solutions_csv(Array[Solution]) -> String
+
+pub fn solutions_equal(Solution, Solution) -> Bool
+
+pub fn strong_all_different(Array[Int]) -> ConstraintSet
+
+pub fn subset_sum(Array[Int], Int) -> Knapsack?
+
+pub fn sudoku(String) -> Sudoku?
+
+pub fn sudoku_from_grid(Array[Array[Int]]) -> Sudoku?
+
+pub fn sudoku_grid(String) -> Array[Array[Int]]?
+
 pub fn sum(Array[Int], Int) -> Constraint
 
+pub fn sum_table(Domain, Domain, Int) -> RelationTable?
+
+pub fn table(Array[Int], Array[Array[Int]]) -> Constraint
+
+pub fn table_scenario() -> Scenario
+
+pub fn trace_solution(Array[Int], Solution) -> DecisionTrace
+
+pub fn two_shift_roster(Int, Int, Int) -> RosterModel?
+
+pub fn two_way_partition(Array[Int], Int) -> BinPacking?
+
 pub fn variable(String, Int, Int) -> Variable
+
+pub fn variable_group(Array[Int]) -> VariableGroup
+
+pub fn variable_with_domain(String, Domain) -> Variable
+
+pub fn weighted_sum_bundle(Array[(Int, Int)], Int) -> ConstraintSet
+
+pub fn workflow_chain(Int) -> Solver?
 
 // Errors
 
 // Types and methods
+pub struct AssignmentProblem {
+  solver : Solver
+  workers : Int
+  jobs : Int
+  assignments : Array[Int]
+  costs : Array[Int]
+  total_cost : Int
+}
+pub fn AssignmentProblem::assignments(Self, Solution) -> Array[Int]
+pub fn AssignmentProblem::cost(Self, Solution) -> Int
+pub fn AssignmentProblem::is_valid(Self, Solution) -> Bool
+pub fn AssignmentProblem::render(Self, Solution) -> String
+pub fn AssignmentProblem::solve(Self) -> OptimizationResult?
+pub fn AssignmentProblem::stats(Self) -> SearchStats
+pub fn AssignmentProblem::worker(Self, Solution, Int) -> Int
+
+pub struct Assumption {
+  variable : Int
+  value : Int
+} derive(Eq, @debug.Debug)
+pub fn Assumption::describe(Self) -> String
+pub fn Assumption::value(Self) -> Int
+pub fn Assumption::variable(Self) -> Int
+
+pub struct AssumptionResult {
+  satisfiable : Bool
+  solution : Solution?
+  stats : SearchStats
+  assumptions : AssumptionSet
+}
+pub fn AssumptionResult::assumptions(Self) -> AssumptionSet
+pub fn AssumptionResult::describe(Self) -> String
+pub fn AssumptionResult::satisfiable(Self) -> Bool
+pub fn AssumptionResult::solution(Self) -> Solution?
+pub fn AssumptionResult::stats(Self) -> SearchStats
+
+pub struct AssumptionSet {
+  items : Array[Assumption]
+}
+pub fn AssumptionSet::add(Self, Assumption) -> Bool
+pub fn AssumptionSet::add_value(Self, Int, Int) -> Bool
+pub fn AssumptionSet::contains(Self, Int, Int) -> Bool
+pub fn AssumptionSet::describe(Self) -> String
+pub fn AssumptionSet::get(Self, Int) -> Assumption?
+pub fn AssumptionSet::is_empty(Self) -> Bool
+pub fn AssumptionSet::length(Self) -> Int
+pub fn AssumptionSet::values(Self) -> Array[Assumption]
+
+pub struct BenchmarkResult {
+  name : String
+  solved : Bool
+  solutions : Int
+  nodes : Int
+  propagations : Int
+  checks : Int
+  pruned : Int
+  depth : Int
+  repeat_count : Int
+}
+pub fn BenchmarkResult::checks(Self) -> Int
+pub fn BenchmarkResult::depth(Self) -> Int
+pub fn BenchmarkResult::describe(Self) -> String
+pub fn BenchmarkResult::name(Self) -> String
+pub fn BenchmarkResult::nodes(Self) -> Int
+pub fn BenchmarkResult::propagations(Self) -> Int
+pub fn BenchmarkResult::pruned(Self) -> Int
+pub fn BenchmarkResult::repeat_count(Self) -> Int
+pub fn BenchmarkResult::solutions(Self) -> Int
+pub fn BenchmarkResult::solved(Self) -> Bool
+pub fn BenchmarkResult::work(Self) -> Int
+
+pub struct BinPacking {
+  solver : Solver
+  assignments : Array[Array[Int]]
+  items : Int
+  bins : Int
+  weights : Array[Int]
+  capacity : Int
+}
+pub fn BinPacking::bin_of(Self, Solution, Int) -> Int?
+pub fn BinPacking::is_valid(Self, Solution) -> Bool
+pub fn BinPacking::loads(Self, Solution) -> Array[Int]
+pub fn BinPacking::render(Self, Solution) -> String
+pub fn BinPacking::solve(Self) -> Solution?
+pub fn BinPacking::stats(Self) -> SearchStats
+
+pub struct BooleanCircuit {
+  solver : Solver
+  outputs : Array[Int]
+}
+pub fn BooleanCircuit::and_gate(Self, Int, Int) -> Int
+pub fn BooleanCircuit::constant(Self, String, Int) -> Int
+pub fn BooleanCircuit::input(Self, String) -> Int
+pub fn BooleanCircuit::not_gate(Self, Int) -> Int
+pub fn BooleanCircuit::or_gate(Self, Int, Int) -> Int
+pub fn BooleanCircuit::output_values(Self, Solution) -> Array[Int]
+pub fn BooleanCircuit::outputs(Self) -> Array[Int]
+pub fn BooleanCircuit::solve(Self) -> Solution?
+pub fn BooleanCircuit::solve_all(Self, Int) -> Array[Solution]
+pub fn BooleanCircuit::solver(Self) -> Solver
+pub fn BooleanCircuit::xor_gate(Self, Int, Int) -> Int
+
+pub struct CalendarModel {
+  solver : Solver
+  tasks : Array[CalendarTask]
+  horizon : Int
+  resources : Int
+}
+pub fn CalendarModel::add_task(Self, String, Int, Int) -> Int?
+pub fn CalendarModel::all_tasks_fit(Self) -> Bool
+pub fn CalendarModel::configure(Self, SearchConfig) -> Unit
+pub fn CalendarModel::earliest_start(Self, Solution) -> Int
+pub fn CalendarModel::end_domains(Self) -> Array[Domain]
+pub fn CalendarModel::end_of(Self, Solution, Int) -> Int
+pub fn CalendarModel::fingerprint(Self, Solution) -> String
+pub fn CalendarModel::fix_start(Self, Int, Int) -> Bool
+pub fn CalendarModel::horizon(Self) -> Int
+pub fn CalendarModel::idle_time(Self, Solution) -> Int
+pub fn CalendarModel::intervals(Self, Solution) -> Array[(String, Int, Int, Int)]
+pub fn CalendarModel::is_valid(Self, Solution) -> Bool
+pub fn CalendarModel::latest_end(Self, Solution) -> Int
+pub fn CalendarModel::makespan(Self, Solution) -> Int
+pub fn CalendarModel::post_all_resources_non_overlap(Self) -> Unit
+pub fn CalendarModel::post_allowed_starts(Self, Int, Array[Int]) -> Unit
+pub fn CalendarModel::post_deadline(Self, Int, Int) -> Unit
+pub fn CalendarModel::post_precedence(Self, Int, Int, Int) -> Unit
+pub fn CalendarModel::post_resource_capacity(Self, Int, Int) -> Unit
+pub fn CalendarModel::post_resource_non_overlap(Self, Int) -> Unit
+pub fn CalendarModel::post_start_window(Self, Int, Int, Int) -> Unit
+pub fn CalendarModel::render(Self, Solution) -> String
+pub fn CalendarModel::resource_count(Self) -> Int
+pub fn CalendarModel::resource_load(Self, Int) -> Int
+pub fn CalendarModel::resource_task_count(Self, Int) -> Int
+pub fn CalendarModel::solve(Self) -> Solution?
+pub fn CalendarModel::solve_all(Self, Int) -> Array[Solution]
+pub fn CalendarModel::start_domains(Self) -> Array[Domain]
+pub fn CalendarModel::start_of(Self, Solution, Int) -> Int
+pub fn CalendarModel::stats(Self) -> SearchStats
+pub fn CalendarModel::summary(Self, Solution) -> CalendarSummary
+pub fn CalendarModel::task(Self, Int) -> CalendarTask
+pub fn CalendarModel::task_count(Self) -> Int
+pub fn CalendarModel::task_ids_for_resource(Self, Int) -> Array[Int]
+pub fn CalendarModel::task_names(Self) -> Array[String]
+pub fn CalendarModel::tasks(Self) -> Array[CalendarTask]
+pub fn CalendarModel::total_duration(Self) -> Int
+
+pub struct CalendarSummary {
+  tasks : Int
+  makespan : Int
+  occupied : Int
+  resource_load : Array[Int]
+}
+pub fn CalendarSummary::describe(Self) -> String
+pub fn CalendarSummary::makespan(Self) -> Int
+pub fn CalendarSummary::occupied(Self) -> Int
+pub fn CalendarSummary::resource_load(Self) -> Array[Int]
+pub fn CalendarSummary::tasks(Self) -> Int
+
+pub struct CalendarTask {
+  name : String
+  start : Int
+  end : Int
+  duration : Int
+  resource : Int
+}
+pub fn CalendarTask::describe(Self) -> String
+pub fn CalendarTask::duration(Self) -> Int
+pub fn CalendarTask::end(Self) -> Int
+pub fn CalendarTask::fits(Self, Int) -> Bool
+pub fn CalendarTask::name(Self) -> String
+pub fn CalendarTask::resource(Self) -> Int
+pub fn CalendarTask::start(Self) -> Int
+
+pub struct ConflictReport {
+  satisfiable : Bool
+  core : AssumptionSet
+  probes : Int
+  original_size : Int
+}
+pub fn ConflictReport::core(Self) -> AssumptionSet
+pub fn ConflictReport::describe(Self) -> String
+pub fn ConflictReport::original_size(Self) -> Int
+pub fn ConflictReport::probes(Self) -> Int
+pub fn ConflictReport::satisfiable(Self) -> Bool
+
 pub enum Constraint {
   Equal(Int, Int)
   NotEqual(Int, Int)
@@ -43,44 +624,783 @@ pub enum Constraint {
   AllDifferent(Array[Int])
   Sum(Array[Int], Int)
   Element(Int, Array[Int], Int)
+  Linear(Array[(Int, Int)], Int)
+  LinearLessEqual(Array[(Int, Int)], Int)
+  LinearGreaterEqual(Array[(Int, Int)], Int)
+  Between(Int, Int, Int)
+  Member(Int, Array[Int])
+  CountValue(Array[Int], Int, Int)
+  AtMostValue(Array[Int], Int, Int)
+  AtLeastValue(Array[Int], Int, Int)
+  Minimum(Array[Int], Int)
+  Maximum(Array[Int], Int)
+  Absolute(Int, Int)
+  Distance(Int, Int, Int)
+  NotDistance(Int, Int, Int)
+  Table(Array[Int], Array[Array[Int]])
+  NoOverlap(Array[(Int, Int)])
+  Cumulative(Array[(Int, Int, Int)], Int)
 } derive(@debug.Debug)
+
+pub struct ConstraintInfo {
+  kind : ConstraintKind
+  arity : Int
+  variables : Array[Int]
+  label : String
+}
+pub fn ConstraintInfo::arity(Self) -> Int
+pub fn ConstraintInfo::describe(Self) -> String
+pub fn ConstraintInfo::kind(Self) -> ConstraintKind
+pub fn ConstraintInfo::label(Self) -> String
+pub fn ConstraintInfo::variables(Self) -> Array[Int]
+
+pub enum ConstraintKind {
+  BinaryConstraint
+  GlobalConstraint
+  ArithmeticConstraint
+  ExtensionalConstraint
+  SchedulingConstraint
+} derive(Eq, @debug.Debug)
+
+pub struct ConstraintSet {
+  constraints : Array[Constraint]
+}
+pub fn ConstraintSet::add(Self, Constraint) -> Self
+pub fn ConstraintSet::append(Self, Self) -> Self
+pub fn ConstraintSet::constraints(Self) -> Array[Constraint]
+pub fn ConstraintSet::labels(Self) -> Array[String]
+pub fn ConstraintSet::length(Self) -> Int
+pub fn ConstraintSet::post(Self, Solver) -> Int
+pub fn ConstraintSet::report(Self) -> ConstraintSetReport
+
+pub struct ConstraintSetReport {
+  count : Int
+  labels : Array[String]
+  fingerprint : String
+}
+pub fn ConstraintSetReport::count(Self) -> Int
+pub fn ConstraintSetReport::describe(Self) -> String
+pub fn ConstraintSetReport::fingerprint(Self) -> String
+pub fn ConstraintSetReport::labels(Self) -> Array[String]
+
+pub struct DecisionStep {
+  variable : Int
+  value : Int
+  accepted : Bool
+  depth : Int
+}
+pub fn DecisionStep::accepted(Self) -> Bool
+pub fn DecisionStep::depth(Self) -> Int
+pub fn DecisionStep::describe(Self) -> String
+pub fn DecisionStep::value(Self) -> Int
+pub fn DecisionStep::variable(Self) -> Int
+
+pub struct DecisionTrace {
+  steps : Array[DecisionStep]
+}
+pub fn DecisionTrace::accepted_count(Self) -> Int
+pub fn DecisionTrace::describe(Self) -> String
+pub fn DecisionTrace::length(Self) -> Int
+pub fn DecisionTrace::maximum_depth(Self) -> Int
+pub fn DecisionTrace::record(Self, DecisionStep) -> Unit
+pub fn DecisionTrace::rejected_count(Self) -> Int
+pub fn DecisionTrace::steps(Self) -> Array[DecisionStep]
 
 pub struct Domain {
   lower : Int
   upper : Int
-  mut removed : Array[Int]
+  removed : Array[Int]
 } derive(@debug.Debug)
 pub fn Domain::assign(Self, Int) -> Bool
+pub fn Domain::assign_largest(Self) -> Bool
+pub fn Domain::assign_smallest(Self) -> Bool
+pub fn Domain::choose_largest(Self) -> Int?
+pub fn Domain::choose_smallest(Self) -> Int?
+pub fn Domain::clone(Self) -> Self
+pub fn Domain::compact(Self) -> String
 pub fn Domain::contains(Self, Int) -> Bool
+pub fn Domain::contains_all(Self, Self) -> Bool
+pub fn Domain::count_range(Self, Int, Int) -> Int
+pub fn Domain::describe(Self) -> String
+pub fn Domain::domain_scale(Self, Int) -> Self
+pub fn Domain::domain_shift(Self, Int) -> Self
+pub fn Domain::intersect_range(Self, Int, Int) -> Bool
+pub fn Domain::intersect_values(Self, Array[Int]) -> Bool
+pub fn Domain::interval_lower(Self) -> Int
+pub fn Domain::interval_upper(Self) -> Int
+pub fn Domain::intervals(Self) -> Array[DomainInterval]
+pub fn Domain::is_contiguous(Self) -> Bool
+pub fn Domain::is_empty(Self) -> Bool
 pub fn Domain::is_singleton(Self) -> Bool
 pub fn Domain::max(Self) -> Int?
 pub fn Domain::min(Self) -> Int?
+pub fn Domain::next(Self, Int) -> Int?
+pub fn Domain::nth(Self, Int) -> Int?
+pub fn Domain::previous(Self, Int) -> Int?
+pub fn Domain::profile(Self) -> DomainProfile
+pub fn Domain::rank(Self, Int) -> Int?
 pub fn Domain::remove(Self, Int) -> Bool
+pub fn Domain::remove_above(Self, Int) -> Bool
+pub fn Domain::remove_below(Self, Int) -> Bool
+pub fn Domain::remove_many(Self, Array[Int]) -> Int
+pub fn Domain::removed_count(Self) -> Int
+pub fn Domain::restore(Self, Self) -> Unit
+pub fn Domain::singleton(Self) -> Int?
 pub fn Domain::size(Self) -> Int
+pub fn Domain::sum_values(Self) -> Int
 pub fn Domain::values(Self) -> Array[Int]
+
+pub struct DomainDelta {
+  variable : Int
+  before : Domain
+  after : Domain
+}
+pub fn DomainDelta::after(Self) -> Domain
+pub fn DomainDelta::before(Self) -> Domain
+pub fn DomainDelta::describe(Self) -> String
+pub fn DomainDelta::variable(Self) -> Int
+
+pub struct DomainInterval {
+  lower : Int
+  upper : Int
+} derive(Eq, @debug.Debug)
+pub fn DomainInterval::contains(Self, Int) -> Bool
+pub fn DomainInterval::describe(Self) -> String
+pub fn DomainInterval::intersect(Self, Self) -> Self?
+pub fn DomainInterval::lower(Self) -> Int
+pub fn DomainInterval::size(Self) -> Int
+pub fn DomainInterval::touches(Self, Self) -> Bool
+pub fn DomainInterval::upper(Self) -> Int
+
+pub struct DomainProfile {
+  minimum : Int?
+  maximum : Int?
+  size : Int
+  interval_count : Int
+  removed_count : Int
+}
+pub fn DomainProfile::describe(Self) -> String
+pub fn DomainProfile::interval_count(Self) -> Int
+pub fn DomainProfile::size(Self) -> Int
+
+pub struct GraphColoring {
+  solver : Solver
+  colors : Array[Int]
+  vertices : Int
+  color_count : Int
+  edges : Array[(Int, Int)]
+}
+pub fn GraphColoring::adjacency(Self) -> Array[Array[Bool]]
+pub fn GraphColoring::color_of(Self, Int) -> Int
+pub fn GraphColoring::colors(Self, Solution) -> Array[Int]
+pub fn GraphColoring::is_valid(Self, Solution) -> Bool
+pub fn GraphColoring::render(Self, Solution) -> String
+pub fn GraphColoring::solve(Self) -> Solution?
+pub fn GraphColoring::solve_all(Self, Int) -> Array[Solution]
+pub fn GraphColoring::stats(Self) -> SearchStats
+
+pub struct GuardedSolve {
+  status : SolveStatus
+  solution : Solution?
+  stats : SearchStats
+  reason : String?
+}
+pub fn GuardedSolve::describe(Self) -> String
+pub fn GuardedSolve::is_success(Self) -> Bool
+pub fn GuardedSolve::reason(Self) -> String?
+pub fn GuardedSolve::solution(Self) -> Solution?
+pub fn GuardedSolve::solution_values(Self) -> Array[Int]?
+pub fn GuardedSolve::stats(Self) -> SearchStats
+pub fn GuardedSolve::status(Self) -> SolveStatus
+pub fn GuardedSolve::was_budget_limited(Self) -> Bool
+pub fn GuardedSolve::was_rejected(Self) -> Bool
+
+pub struct HeuristicResult {
+  name : String
+  solutions : Int
+  stats : SearchStats
+}
+pub fn HeuristicResult::describe(Self) -> String
+pub fn HeuristicResult::name(Self) -> String
+pub fn HeuristicResult::solutions(Self) -> Int
+pub fn HeuristicResult::stats(Self) -> SearchStats
+
+pub struct IntervalTask {
+  name : String
+  start : Int
+  duration : Int
+  demand : Int
+  latest_start : Int
+}
+
+pub struct Knapsack {
+  solver : Solver
+  items : Array[KnapsackItem]
+  objective : Int
+  capacity : Int
+}
+pub fn Knapsack::is_valid(Self, Solution) -> Bool
+pub fn Knapsack::objective_variable(Self) -> Int
+pub fn Knapsack::render(Self, Solution) -> String
+pub fn Knapsack::selected_names(Self, Solution) -> Array[String]
+pub fn Knapsack::selection_variable(Self, Int) -> Int
+pub fn Knapsack::solve(Self) -> OptimizationResult?
+pub fn Knapsack::stats(Self) -> SearchStats
+pub fn Knapsack::value(Self, Solution) -> Int
+pub fn Knapsack::weight(Self, Solution) -> Int
+
+pub struct KnapsackItem {
+  name : String
+  weight : Int
+  value : Int
+  selected : Int
+}
+
+pub struct LatinSquare {
+  solver : Solver
+  cells : Array[Int]
+  size : Int
+}
+pub fn LatinSquare::cell(Self, Int, Int) -> Int
+pub fn LatinSquare::fix_first_row(Self) -> Unit
+pub fn LatinSquare::is_valid(Self, Solution) -> Bool
+pub fn LatinSquare::matrix(Self, Solution) -> Array[Array[Int]]
+pub fn LatinSquare::solve(Self) -> Solution?
+pub fn LatinSquare::stats(Self) -> SearchStats
+
+pub struct LinearBuilder {
+  terms : Array[(Int, Int)]
+  mut constant : Int
+}
+pub fn LinearBuilder::constant(Self) -> Int
+pub fn LinearBuilder::equals(Self, Int) -> Constraint
+pub fn LinearBuilder::offset(Self, Int) -> Self
+pub fn LinearBuilder::post_equals(Self, ModelBuilder, Int) -> Unit
+pub fn LinearBuilder::term(Self, Int, Int) -> Self
+pub fn LinearBuilder::terms(Self) -> Array[(Int, Int)]
+
+pub struct MagicSquare {
+  solver : Solver
+  cells : Array[Int]
+  size : Int
+  magic_sum : Int
+}
+pub fn MagicSquare::cell(Self, Int, Int) -> Int
+pub fn MagicSquare::is_valid(Self, Solution) -> Bool
+pub fn MagicSquare::matrix(Self, Solution) -> Array[Array[Int]]
+pub fn MagicSquare::solve(Self) -> Solution?
+pub fn MagicSquare::stats(Self) -> SearchStats
+pub fn MagicSquare::target(Self) -> Int
+
+pub struct ModelBuilder {
+  solver : Solver
+  names : Map[String, Int]
+}
+pub fn ModelBuilder::configure(Self, SearchConfig) -> Unit
+pub fn ModelBuilder::constraint_count(Self) -> Int
+pub fn ModelBuilder::describe_solution(Self, Solution) -> String
+pub fn ModelBuilder::find(Self, String) -> Int?
+pub fn ModelBuilder::finite(Self, String, Array[Int]) -> Int
+pub fn ModelBuilder::fix(Self, String, Int) -> Bool
+pub fn ModelBuilder::int(Self, String, Int, Int) -> Int
+pub fn ModelBuilder::limit(Self, Int) -> Unit
+pub fn ModelBuilder::named_solution(Self, Solution) -> Map[String, Int]
+pub fn ModelBuilder::names(Self) -> Map[String, Int]
+pub fn ModelBuilder::post(Self, Constraint) -> Unit
+pub fn ModelBuilder::post_all_different(Self, Array[String]) -> Unit
+pub fn ModelBuilder::post_count(Self, Array[String], Int, Int) -> Unit
+pub fn ModelBuilder::post_equal(Self, String, String) -> Unit
+pub fn ModelBuilder::post_less_than(Self, String, String) -> Unit
+pub fn ModelBuilder::post_not_equal(Self, String, String) -> Unit
+pub fn ModelBuilder::require(Self, String) -> Int
+pub fn ModelBuilder::solve(Self) -> Solution?
+pub fn ModelBuilder::solve_all(Self) -> Array[Solution]
+pub fn ModelBuilder::solver(Self) -> Solver
+pub fn ModelBuilder::summary(Self) -> String
+pub fn ModelBuilder::variable_count(Self) -> Int
+
+pub struct ModelLimits {
+  max_variables : Int
+  max_constraints : Int
+  max_domain_size : Int
+}
+
+pub struct ModelSnapshot {
+  domains : Array[Domain]
+  max_solutions : Int
+  search_config : SearchConfig
+}
+pub fn ModelSnapshot::describe(Self) -> String
+pub fn ModelSnapshot::domain_of(Self, Int) -> Domain
+pub fn ModelSnapshot::variable_count(Self) -> Int
+
+pub struct NQueens {
+  solver : Solver
+  queens : Array[Int]
+  size : Int
+}
+pub fn NQueens::compact(Self, Solution) -> String
+pub fn NQueens::is_valid(Self, Solution) -> Bool
+pub fn NQueens::queen_ids(Self) -> Array[Int]
+pub fn NQueens::render(Self, Solution) -> String
+pub fn NQueens::solve(Self) -> Solution?
+pub fn NQueens::solve_all(Self, Int) -> Array[Solution]
+pub fn NQueens::stats(Self) -> SearchStats
+
+pub struct Objective {
+  terms : Array[ObjectiveTerm]
+}
+pub fn Objective::best(Self, Array[Solution]) -> Solution?
+pub fn Objective::describe(Self) -> String
+pub fn Objective::dominates(Self, Solution, Solution) -> Bool
+pub fn Objective::is_better(Self, Solution, Solution) -> Bool
+pub fn Objective::pareto_front(Self, Array[Solution]) -> Array[Solution]
+pub fn Objective::score(Self, Solution) -> Int
+pub fn Objective::terms(Self) -> Array[ObjectiveTerm]
+pub fn Objective::then(Self, Int, OptimizationDirection, Int) -> Self
+pub fn Objective::values(Self, Solution) -> Array[Int]
+
+pub struct ObjectiveTerm {
+  variable : Int
+  direction : OptimizationDirection
+  weight : Int
+}
+pub fn ObjectiveTerm::direction(Self) -> OptimizationDirection
+pub fn ObjectiveTerm::variable(Self) -> Int
+pub fn ObjectiveTerm::weight(Self) -> Int
+
+pub enum OptimizationDirection {
+  MinimizeValue
+  MaximizeValue
+} derive(Eq, @debug.Debug)
+
+pub struct OptimizationResult {
+  solution : Solution
+  objective : Int
+} derive(@debug.Debug)
+pub fn OptimizationResult::objective(Self) -> Int
+pub fn OptimizationResult::solution(Self) -> Solution
+
+pub struct ProbeBatch {
+  results : Array[AssumptionResult]
+}
+pub fn ProbeBatch::describe(Self) -> String
+pub fn ProbeBatch::length(Self) -> Int
+pub fn ProbeBatch::results(Self) -> Array[AssumptionResult]
+pub fn ProbeBatch::satisfiable_count(Self) -> Int
+pub fn ProbeBatch::unsatisfiable_count(Self) -> Int
+
+pub struct RelationTable {
+  arity : Int
+  rows : Array[Array[Int]]
+}
+pub fn RelationTable::arity(Self) -> Int
+pub fn RelationTable::column(Self, Int) -> Array[Int]
+pub fn RelationTable::compatible(Self, Array[Int?]) -> Array[Array[Int]]
+pub fn RelationTable::contains(Self, Array[Int]) -> Bool
+pub fn RelationTable::describe(Self) -> String
+pub fn RelationTable::post(Self, Solver, Array[Int]) -> Bool
+pub fn RelationTable::rows(Self) -> Array[Array[Int]]
+
+pub struct ResourceSchedule {
+  solver : Solver
+  tasks : Array[IntervalTask]
+  horizon : Int
+  capacity : Int
+}
+pub fn ResourceSchedule::add_flexible_task(Self, String, Int, Int) -> Int?
+pub fn ResourceSchedule::add_task(Self, String, Int, Int, Int) -> Int?
+pub fn ResourceSchedule::avoid_window(Self, Int, Int) -> Bool
+pub fn ResourceSchedule::duration(Self, Int) -> Int
+pub fn ResourceSchedule::ends(Self, Solution) -> Array[Int]
+pub fn ResourceSchedule::fix_start(Self, Int, Int) -> Bool
+pub fn ResourceSchedule::is_valid(Self, Solution) -> Bool
+pub fn ResourceSchedule::load_profile(Self, Solution) -> Array[Int]
+pub fn ResourceSchedule::precede(Self, Int, Int) -> Bool
+pub fn ResourceSchedule::render(Self, Solution) -> String
+pub fn ResourceSchedule::solve(Self) -> Solution?
+pub fn ResourceSchedule::solve_all(Self, Int) -> Array[Solution]
+pub fn ResourceSchedule::start_variable(Self, Int) -> Int
+pub fn ResourceSchedule::starts(Self, Solution) -> Array[Int]
+pub fn ResourceSchedule::stats(Self) -> SearchStats
+pub fn ResourceSchedule::summary(Self) -> String
+pub fn ResourceSchedule::task_count(Self) -> Int
+pub fn ResourceSchedule::task_name(Self, Int) -> String
+
+pub struct RosterModel {
+  solver : Solver
+  assignments : Array[Array[Int]]
+  workers : Int
+  days : Int
+  shifts : Int
+}
+pub fn RosterModel::configure(Self, SearchConfig) -> Unit
+pub fn RosterModel::coverage(Self, Solution) -> Array[Array[Int]]
+pub fn RosterModel::day_count(Self) -> Int
+pub fn RosterModel::day_variables(Self, Int) -> Array[Int]
+pub fn RosterModel::fingerprint(Self, Solution) -> String
+pub fn RosterModel::fix(Self, Int, Int, Int) -> Bool
+pub fn RosterModel::is_valid(Self, Solution) -> Bool
+pub fn RosterModel::post_daily_cover(Self, Array[Array[Int]]) -> Unit
+pub fn RosterModel::post_daily_different(Self, Int) -> Unit
+pub fn RosterModel::post_no_consecutive_shift(Self, Int) -> Unit
+pub fn RosterModel::post_pair_different(Self, Int, Int) -> Unit
+pub fn RosterModel::post_worker_interval(Self, Int, Int, Int, Int, Int) -> Unit
+pub fn RosterModel::post_worker_shift_bounds(Self, Int, Int, Int, Int) -> Unit
+pub fn RosterModel::post_worker_window_different(Self, Int, Int) -> Unit
+pub fn RosterModel::render(Self, Solution) -> String
+pub fn RosterModel::score(Self, Solution) -> RosterScore
+pub fn RosterModel::shift_count(Self) -> Int
+pub fn RosterModel::shift_count_for(Self, Solution, Int, Int) -> Int
+pub fn RosterModel::solve(Self) -> Solution?
+pub fn RosterModel::solve_all(Self, Int) -> Array[Solution]
+pub fn RosterModel::stats(Self) -> SearchStats
+pub fn RosterModel::values(Self, Solution) -> Array[Array[Int]]
+pub fn RosterModel::variable(Self, Int, Int) -> Int
+pub fn RosterModel::worker_count(Self) -> Int
+pub fn RosterModel::worker_values(Self, Solution, Int) -> Array[Int]
+pub fn RosterModel::worker_variables(Self, Int) -> Array[Int]
+pub fn RosterModel::workload_spread(Self, Solution) -> Int
+
+pub struct RosterScore {
+  spread : Int
+  violations : Int
+  coverage_total : Int
+}
+pub fn RosterScore::coverage_total(Self) -> Int
+pub fn RosterScore::describe(Self) -> String
+pub fn RosterScore::spread(Self) -> Int
+pub fn RosterScore::violations(Self) -> Int
+
+pub struct Scenario {
+  name : String
+  solver : Solver
+  expected_solutions : Int
+}
+pub fn Scenario::expected(Self) -> Int
+pub fn Scenario::matches(Self, Array[Solution]) -> Bool
+pub fn Scenario::name(Self) -> String
+pub fn Scenario::solve(Self, Int) -> Array[Solution]
+pub fn Scenario::stats(Self) -> SearchStats
+
+pub struct SchedulePreference {
+  day : Int
+  shift : Int
+  preferred_person : Int
+  penalty : Int
+}
+
+pub struct ScheduleProblem {
+  solver : Solver
+  slots : Array[Int]
+  people : Int
+  days : Int
+  shifts_per_day : Int
+  minimum_load : Int
+  maximum_load : Int
+}
+pub fn ScheduleProblem::assignments(Self, Solution) -> Array[Array[Int]]
+pub fn ScheduleProblem::avoid_pair(Self, Int, Int) -> Bool
+pub fn ScheduleProblem::avoid_same_shift(Self, Int) -> Bool
+pub fn ScheduleProblem::fix(Self, Int, Int, Int) -> Bool
+pub fn ScheduleProblem::is_complete(Self, Solution) -> Bool
+pub fn ScheduleProblem::maximum_load(Self) -> Int
+pub fn ScheduleProblem::minimum_load(Self) -> Int
+pub fn ScheduleProblem::render(Self, Solution) -> String
+pub fn ScheduleProblem::score(Self, Solution, Array[SchedulePreference]) -> Int
+pub fn ScheduleProblem::slot(Self, Int, Int) -> Int
+pub fn ScheduleProblem::slot_ids(Self) -> Array[Int]
+pub fn ScheduleProblem::solve(Self) -> Solution?
+pub fn ScheduleProblem::solve_all(Self, Int) -> Array[Solution]
+pub fn ScheduleProblem::solver(Self) -> Solver
+pub fn ScheduleProblem::stats(Self) -> SearchStats
+
+pub struct ScoredSolution {
+  solution : Solution
+  score : Int
+  rank : Int
+}
+pub fn ScoredSolution::describe(Self) -> String
+pub fn ScoredSolution::rank(Self) -> Int
+pub fn ScoredSolution::score(Self) -> Int
+pub fn ScoredSolution::solution(Self) -> Solution
+
+pub struct SearchConfig {
+  mut max_solutions : Int
+  mut variable_heuristic : VariableHeuristic
+  mut value_heuristic : ValueHeuristic
+  mut propagation_rounds : Int
+  mut enable_learning : Bool
+  mut node_limit : Int
+} derive(@debug.Debug)
+pub fn SearchConfig::choose_values(Self, ValueHeuristic) -> Self
+pub fn SearchConfig::choose_variables(Self, VariableHeuristic) -> Self
+pub fn SearchConfig::learning(Self, Bool) -> Self
+pub fn SearchConfig::limit(Self, Int) -> Self
+pub fn SearchConfig::node_budget(Self, Int) -> Self
+pub fn SearchConfig::round_limit(Self, Int) -> Self
+
+pub struct SearchStats {
+  mut nodes : Int
+  mut failures : Int
+  mut propagations : Int
+  mut constraint_checks : Int
+  mut pruned_values : Int
+  mut solutions : Int
+  mut maximum_depth : Int
+  mut restarts : Int
+  mut learned_conflicts : Int
+  mut truncated : Bool
+} derive(@debug.Debug)
+pub fn SearchStats::check_count(Self) -> Int
+pub fn SearchStats::depth(Self) -> Int
+pub fn SearchStats::describe(Self) -> String
+pub fn SearchStats::failure_count(Self) -> Int
+pub fn SearchStats::is_truncated(Self) -> Bool
+pub fn SearchStats::node_count(Self) -> Int
+pub fn SearchStats::propagation_count(Self) -> Int
+pub fn SearchStats::pruned_count(Self) -> Int
+pub fn SearchStats::solution_count(Self) -> Int
+
+pub struct SequenceModel {
+  solver : Solver
+  values : Array[Int]
+  length : Int
+  lower : Int
+  upper : Int
+}
+pub fn SequenceModel::configure(Self, SearchConfig) -> Unit
+pub fn SequenceModel::domain_of(Self, Int) -> Domain
+pub fn SequenceModel::fingerprint(Self, Solution) -> String
+pub fn SequenceModel::fix(Self, Int, Int) -> Bool
+pub fn SequenceModel::is_valid(Self, Solution) -> Bool
+pub fn SequenceModel::length(Self) -> Int
+pub fn SequenceModel::lower_bound(Self) -> Int
+pub fn SequenceModel::post_allowed_values(Self, Array[Int]) -> Unit
+pub fn SequenceModel::post_at_least_count(Self, Int, Int) -> Unit
+pub fn SequenceModel::post_at_most_count(Self, Int, Int) -> Unit
+pub fn SequenceModel::post_constant_step(Self, Int) -> Unit
+pub fn SequenceModel::post_edge_transitions(Self, Array[Array[Array[Int]]]) -> Unit
+pub fn SequenceModel::post_exact_count(Self, Int, Int) -> Unit
+pub fn SequenceModel::post_no_adjacent_equal(Self) -> Unit
+pub fn SequenceModel::post_nondecreasing(Self) -> Unit
+pub fn SequenceModel::post_run_limit(Self, Int) -> Unit
+pub fn SequenceModel::post_strictly_increasing(Self) -> Unit
+pub fn SequenceModel::post_sum(Self, Int) -> Unit
+pub fn SequenceModel::post_sum_between(Self, Int, Int) -> Unit
+pub fn SequenceModel::post_transitions(Self, Array[Array[Int]]) -> Unit
+pub fn SequenceModel::post_window_count(Self, Int, Int, Int) -> Unit
+pub fn SequenceModel::post_window_sum(Self, Int, Int) -> Unit
+pub fn SequenceModel::post_window_table(Self, Int, Array[Array[Int]]) -> Unit
+pub fn SequenceModel::render(Self, Solution) -> String
+pub fn SequenceModel::solution_summary(Self, Solution) -> SequenceSummary?
+pub fn SequenceModel::solve(Self) -> Solution?
+pub fn SequenceModel::solve_all(Self, Int) -> Array[Solution]
+pub fn SequenceModel::stats(Self) -> SearchStats
+pub fn SequenceModel::upper_bound(Self) -> Int
+pub fn SequenceModel::values_of(Self, Solution) -> Array[Int]
+pub fn SequenceModel::variables(Self) -> Array[Int]
+
+pub struct SequenceSummary {
+  values : Array[Int]
+  total : Int
+  minimum : Int
+  maximum : Int
+  changes : Int
+  runs : Int
+} derive(Eq, @debug.Debug)
+pub fn SequenceSummary::changes(Self) -> Int
+pub fn SequenceSummary::describe(Self) -> String
+pub fn SequenceSummary::maximum(Self) -> Int
+pub fn SequenceSummary::minimum(Self) -> Int
+pub fn SequenceSummary::runs(Self) -> Int
+pub fn SequenceSummary::total(Self) -> Int
+pub fn SequenceSummary::values(Self) -> Array[Int]
+
+pub struct SetCovering {
+  solver : Solver
+  selected : Array[Int]
+  costs : Array[Int]
+  total_cost : Int
+  universe_size : Int
+}
+pub fn SetCovering::cost(Self, Solution) -> Int
+pub fn SetCovering::covers_all(Self, Solution, Array[Array[Int]]) -> Bool
+pub fn SetCovering::render(Self, Solution) -> String
+pub fn SetCovering::selected_sets(Self, Solution) -> Array[Int]
+pub fn SetCovering::solve(Self) -> OptimizationResult?
+pub fn SetCovering::stats(Self) -> SearchStats
 
 pub struct Solution {
   values : Array[Int]
-} derive(@debug.Debug)
+} derive(Eq, @debug.Debug)
+pub fn Solution::csv(Self) -> String
+pub fn Solution::describe(Self, Array[Variable]) -> String
 pub fn Solution::get(Self, Int) -> Int
+pub fn Solution::values(Self) -> Array[Int]
+
+pub struct SolutionDelta {
+  variable : Int
+  before : Int
+  after : Int
+}
+pub fn SolutionDelta::after(Self) -> Int
+pub fn SolutionDelta::before(Self) -> Int
+pub fn SolutionDelta::describe(Self) -> String
+pub fn SolutionDelta::variable(Self) -> Int
+
+pub struct SolveAudit {
+  satisfiable : Bool
+  solutions : Int
+  stats : SearchStats
+  complete : Bool
+}
+pub fn SolveAudit::complete(Self) -> Bool
+pub fn SolveAudit::describe(Self) -> String
+pub fn SolveAudit::satisfiable(Self) -> Bool
+pub fn SolveAudit::solutions(Self) -> Int
+pub fn SolveAudit::stats(Self) -> SearchStats
+
+pub enum SolveStatus {
+  SolvedStatus
+  UnsatisfiableStatus
+  LimitRejectedStatus
+  BudgetExceededStatus
+} derive(Eq, @debug.Debug)
 
 pub struct Solver {
   variables : Array[Variable]
   constraints : Array[Constraint]
   mut max_solutions : Int
+  mut search_config : SearchConfig
+  mut last_stats : SearchStats
 }
 pub fn Solver::add_constraint(Self, Constraint) -> Unit
 pub fn Solver::add_variable(Self, Variable) -> Int
+pub fn Solver::assign(Self, Int, Int) -> Bool
+pub fn Solver::audit(Self, Int) -> SolveAudit
+pub fn Solver::best_solution(Self, Objective, Int) -> ScoredSolution?
+pub fn Solver::compare_heuristics(Self, Int) -> Array[HeuristicResult]
+pub fn Solver::compare_value_orders(Self, Int) -> Array[HeuristicResult]
+pub fn Solver::configure(Self, SearchConfig) -> Unit
+pub fn Solver::constraint_count(Self) -> Int
+pub fn Solver::constraint_csv(Self) -> String
+pub fn Solver::constraint_kind_counts(Self) -> Map[String, Int]
+pub fn Solver::constraint_report(Self) -> Array[ConstraintInfo]
+pub fn Solver::constraints(Self) -> Array[Constraint]
+pub fn Solver::count_solutions(Self, Int) -> Int
+pub fn Solver::csv_header(Self) -> String
+pub fn Solver::diagnostic_report(Self) -> String
+pub fn Solver::domain_csv(Self) -> String
+pub fn Solver::domain_histogram(Self) -> Map[Int, Int]
+pub fn Solver::domain_of(Self, Int) -> Domain
+pub fn Solver::domains(Self) -> Array[Domain]
+pub fn Solver::enumeration_complete(Self) -> Bool
+pub fn Solver::explain_assumptions(Self, AssumptionSet) -> ConflictReport
+pub fn Solver::guarded_solve(Self, ModelLimits, Int) -> GuardedSolve
+pub fn Solver::has_nonempty_domains(Self) -> Bool
+pub fn Solver::is_consistent_with(Self, AssumptionSet) -> Bool
+pub fn Solver::is_satisfiable(Self) -> Bool
+pub fn Solver::is_valid_solution(Self, Solution) -> Bool
+pub fn Solver::last_pruned_values(Self) -> Int
+pub fn Solver::last_solve_truncated(Self) -> Bool
 pub fn Solver::limit(Self, Int) -> Unit
+pub fn Solver::limit_violation(Self, ModelLimits) -> String?
+pub fn Solver::metrics(Self) -> SolverMetrics
+pub fn Solver::metrics_map(Self) -> Map[String, Int]
+pub fn Solver::optimize(Self, Int, OptimizationDirection) -> OptimizationResult?
+pub fn Solver::performance_report(Self) -> String
+pub fn Solver::probe(Self, ProbeBatch, AssumptionSet) -> AssumptionResult
+pub fn Solver::ranked_solutions(Self, Objective, Int) -> Array[ScoredSolution]
+pub fn Solver::readiness_report(Self, ModelLimits) -> String
+pub fn Solver::ready(Self) -> Bool
+pub fn Solver::reset_stats(Self) -> Unit
+pub fn Solver::restore(Self, ModelSnapshot) -> Unit
+pub fn Solver::snapshot(Self) -> ModelSnapshot
+pub fn Solver::solution_csv(Self, Solution) -> String
 pub fn Solver::solve(Self) -> Solution?
 pub fn Solver::solve_all(Self) -> Array[Solution]
+pub fn Solver::solve_all_with_assumptions(Self, AssumptionSet, Int) -> Array[Solution]
+pub fn Solver::solve_with(Self, SearchConfig) -> Array[Solution]
+pub fn Solver::solve_with_assumptions(Self, AssumptionSet) -> AssumptionResult
+pub fn Solver::solve_with_budget(Self, Int, Int) -> Array[Solution]
+pub fn Solver::stats(Self) -> SearchStats
+pub fn Solver::structural_fingerprint(Self) -> String
+pub fn Solver::summary(Self) -> String
+pub fn Solver::validate(Self) -> Bool
+pub fn Solver::validation_error(Self) -> String?
+pub fn Solver::variable_count(Self) -> Int
+pub fn Solver::variables(Self) -> Array[Variable]
+pub fn Solver::violations(Self, Solution) -> Array[String]
+pub fn Solver::within_limits(Self, ModelLimits) -> Bool
+
+pub struct SolverMetrics {
+  variables : Int
+  constraints : Int
+  total_candidates : Int
+  singleton_variables : Int
+  empty_variables : Int
+  global_constraints : Int
+  arithmetic_constraints : Int
+  scheduling_constraints : Int
+}
+pub fn SolverMetrics::average_domain_size(Self) -> Int
+pub fn SolverMetrics::branching_estimate(Self) -> Int
+pub fn SolverMetrics::describe(Self) -> String
+pub fn SolverMetrics::fixed_percentage(Self) -> Int
+pub fn SolverMetrics::has_empty_domain(Self) -> Bool
+pub fn SolverMetrics::health_score(Self) -> Int
+
+pub struct Sudoku {
+  solver : Solver
+  cells : Array[Int]
+  givens : Array[Int]
+}
+pub fn Sudoku::add_diagonals(Self) -> Unit
+pub fn Sudoku::add_distance(Self, Int, Int, Int, Int, Int) -> Bool
+pub fn Sudoku::cell(Self, Int, Int) -> Int
+pub fn Sudoku::cell_ids(Self) -> Array[Int]
+pub fn Sudoku::compact(Self, Solution) -> String
+pub fn Sudoku::count_solutions(Self, Int) -> Int
+pub fn Sudoku::givens(Self) -> Array[Int]
+pub fn Sudoku::is_valid(Self, Solution) -> Bool
+pub fn Sudoku::render(Self, Solution) -> String
+pub fn Sudoku::solve(Self) -> Solution?
+pub fn Sudoku::solve_all(Self, Int) -> Array[Solution]
+pub fn Sudoku::solver(Self) -> Solver
+pub fn Sudoku::stats(Self) -> SearchStats
+
+pub enum ValueHeuristic {
+  AscendingValues
+  DescendingValues
+  MedianFirst
+} derive(Eq, @debug.Debug)
 
 pub struct Variable {
   name : String
   domain : Domain
 } derive(@debug.Debug)
+pub fn Variable::clone(Self) -> Self
+pub fn Variable::domain(Self) -> Domain
+pub fn Variable::name(Self) -> String
+pub fn Variable::size(Self) -> Int
+
+pub struct VariableGroup {
+  ids : Array[Int]
+}
+pub fn VariableGroup::all_different(Self, Solver) -> Unit
+pub fn VariableGroup::count(Self, Solver, Int, Int) -> Unit
+pub fn VariableGroup::ids(Self) -> Array[Int]
+pub fn VariableGroup::length(Self) -> Int
+pub fn VariableGroup::sum(Self, Solver, Int) -> Unit
+
+pub enum VariableHeuristic {
+  MinimumRemainingValues
+  FirstUnassigned
+  MaximumDegree
+  DomOverDegree
+} derive(Eq, @debug.Debug)
 
 // Type aliases
 
 // Traits
-

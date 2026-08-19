@@ -1,7 +1,3 @@
-// import {
-//   "mengjiafu/moonbit_constraint" @lib,
-// }
-
 import {
   "mjfmjf/moonbit_constraint" @constraint,
 }
