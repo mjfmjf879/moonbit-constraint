@@ -12,6 +12,7 @@
 - 等式/不等式、线性、`AllDifferent`、表约束、计数、极值、区间资源约束。
 - MRV 等变量启发式、解枚举、节点预算、增量假设、诊断统计和确定性基准。
 - 排班、序列配额、轮班、资源日程、日历任务、数独、N 皇后、图着色、背包、分配、覆盖和装箱模型。
+- 路由、项目依赖、容量网络、时间线、制造调度、离散事件、风险情景、质量门禁和运行台账。
 
 ## 快速开始
 
@@ -40,7 +41,7 @@ moon fmt
 moon info
 ```
 
-求解流程为“有限域与模型 → 约束传播 → 启发式分支 → 完整赋值校验”；应用模块负责领域模型和结果渲染。基准原始结果见 [`BENCHMARKS.md`](BENCHMARKS.md)，CI 工作流见 [`.github/workflows/test.yml`](.github/workflows/test.yml)。
+求解流程为“有限域与模型 → 约束传播 → 启发式分支 → 完整赋值校验”；应用模块负责领域模型、结果渲染、校验报告和运行指标。基准原始结果见 [`BENCHMARKS.md`](BENCHMARKS.md)，CI 工作流见 [`.github/workflows/test.yml`](.github/workflows/test.yml)。
 
 ## 许可证
 

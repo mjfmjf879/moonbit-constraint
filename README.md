@@ -16,6 +16,8 @@
 - 增量快照、临时假设求解、可逆域恢复、冲突核心报告和决策轨迹。
 - 约束组合器、布尔关系、整数关系表、优化目标、Pareto 前沿和 CSV/文本模型辅助工具。
 - 可直接运行的排班、序列配额、轮班模板、资源日程、日历任务、数独、N 皇后、图着色、拉丁方、幻方、背包、集合覆盖、装箱和分配模型。
+- 面向生产流程的路由规划、项目依赖、容量网络、图算法、时间线分析、制造调度、离散事件模拟、风险情景、场景组合、质量门禁和运行台账。
+- 提供矩阵/统计/文本/校验/报告等无外部依赖的应用基础设施，便于把求解结果接入 CLI、批处理和回归检查。
 
 ## 快速开始
 
@@ -57,10 +59,12 @@ Solver：传播 → 启发式分支 → 完整赋值校验
         ↓
 Builder / Diagnostics / Optimization / Model I/O
         ↓
-Schedule / ResourceSchedule / Sudoku / NQueens / Knapsack / …
+Routing / ProjectPlan / CapacityNetwork / ResourceTimeline / Simulation
+        ↓
+QualityReview / ValidationReport / OperationalLedger / Domain Reports
 ```
 
-底层求解器保持整数有限域模型的通用性；应用模块只负责变量布局、约束构造、结果渲染和领域校验。否定距离等非凸关系保留在完整赋值阶段校验，避免传播器产生不正确的剪枝。
+底层求解器保持整数有限域模型的通用性；应用模块负责变量布局、约束构造、结果渲染、领域校验和可复现的运行指标。否定距离等非凸关系保留在完整赋值阶段校验，避免传播器产生不正确的剪枝。
 
 ## 基准
 
@@ -74,7 +78,7 @@ moon run --target native cmd/benchmark
 
 ## 测试
 
-测试覆盖核心域运算、边界耗尽、线性/关系约束、解枚举、优化模型和应用场景，并包含 malformed input、矛盾模型、负数域、空解空间、容量边界和节点预算等边界用例。
+测试覆盖核心域运算、边界耗尽、线性/关系约束、解枚举、优化模型和应用场景，并包含 malformed input、矛盾模型、负数域、空解空间、容量边界、路由/图/流/时间线边界和节点预算等用例。
 
 ```text
 moon check --target all --deny-warn

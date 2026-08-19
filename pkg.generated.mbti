@@ -8,9 +8,45 @@ import {
 // Values
 pub fn absolute(Int, Int) -> Constraint
 
+pub fn active_resource_count(ResourceTimeline, Int) -> Int
+
+pub fn aggregate_model_reports(String, Array[ModelReport]) -> ModelReport
+
 pub fn all_different(Array[Int]) -> Constraint
 
 pub fn all_different_pairs(Array[Int]) -> ConstraintSet
+
+pub fn all_in_range(Array[Int], Int, Int) -> Bool
+
+pub fn all_true(Array[Bool]) -> Bool
+
+pub fn allocation_bin_value(AllocationInstance, AllocationPlan, Int) -> Int
+
+pub fn allocation_bin_weight(AllocationInstance, AllocationPlan, Int) -> Int
+
+pub fn allocation_completion(AllocationInstance, AllocationPlan) -> Int
+
+pub fn allocation_feasible(AllocationInstance, AllocationPlan) -> Bool
+
+pub fn allocation_group_count(AllocationInstance, AllocationPlan, Int, Int) -> Int
+
+pub fn allocation_instance(Array[AllocationItem], Array[Int]) -> AllocationInstance?
+
+pub fn allocation_item(Int, Int, Int, Int) -> AllocationItem
+
+pub fn allocation_items_by_value(AllocationInstance) -> Array[Int]
+
+pub fn allocation_loads(AllocationInstance, AllocationPlan) -> Array[Int]
+
+pub fn allocation_plan(AllocationInstance) -> AllocationPlan
+
+pub fn allocation_report(AllocationInstance, AllocationPlan) -> String
+
+pub fn allocation_signature(AllocationPlan) -> Int
+
+pub fn allocation_spread(AllocationInstance, AllocationPlan) -> Int
+
+pub fn allocation_values(AllocationInstance, AllocationPlan) -> Array[Int]
 
 pub fn allowed_rows(Array[Int], Array[Array[Int]]) -> ConstraintSet
 
@@ -18,13 +54,39 @@ pub fn allowed_values(Int, Array[Int]) -> Constraint
 
 pub fn alternating_binary_sequence(Int) -> SequenceModel?
 
+pub fn any_outside_range(Array[Int], Int, Int) -> Bool
+
+pub fn any_true(Array[Bool]) -> Bool
+
 pub fn arithmetic_relation(Domain, Domain, (Int, Int) -> Int) -> RelationTable?
 
 pub fn arithmetic_result_domain(Domain, Domain, (Int, Int) -> Int) -> Domain?
 
 pub fn arithmetic_scenario() -> Scenario
 
+pub fn artifact_benchmark(String, Int, Bool, Int) -> ArtifactBenchmark
+
+pub fn assignment_alternates(Array[Int], Int, Int) -> Bool
+
+pub fn assignment_category_count(Array[Int]) -> Int
+
+pub fn assignment_change_penalty(Array[Int], Array[Int], Int) -> Int
+
+pub fn assignment_changes(Array[Int], Array[Int]) -> Int
+
+pub fn assignment_counts(Array[Int], Int) -> Array[Int]
+
+pub fn assignment_hamming_distance(Array[Int], Array[Int]) -> Int
+
+pub fn assignment_imbalance(Array[Int], Int) -> Int
+
+pub fn assignment_metrics(Array[Int], Int, Array[Int]) -> AssignmentMetrics
+
 pub fn assignment_problem(Int, Int, Array[Array[Int]]) -> AssignmentProblem?
+
+pub fn assignment_signature(Array[Int]) -> Int
+
+pub fn assignment_transitions(Array[Int]) -> Int
 
 pub fn assumption(Int, Int) -> Assumption
 
@@ -36,9 +98,21 @@ pub fn at_least_value(Array[Int], Int, Int) -> Constraint
 
 pub fn at_most_value(Array[Int], Int, Int) -> Constraint
 
+pub fn attempts_equal(SolveAttempt, SolveAttempt) -> Bool
+
+pub fn average_customer_demand(RoutingInstance) -> Int
+
+pub fn average_route_distance(RoutingInstance, RoutingPlan) -> Int
+
+pub fn balance_unassigned(AllocationInstance, AllocationPlan) -> Int
+
 pub fn balanced_schedule(Int, Int, Int) -> ScheduleProblem?
 
+pub fn benchmark_artifact_suite(String) -> BenchmarkArtifactSuite
+
 pub fn benchmark_coloring(Int, Int) -> BenchmarkResult
+
+pub fn benchmark_evidence(BenchmarkArtifactSuite, Int) -> EvidenceBundle
 
 pub fn benchmark_fingerprint(Array[BenchmarkResult]) -> String
 
@@ -49,6 +123,8 @@ pub fn benchmark_latin(Int) -> BenchmarkResult
 pub fn benchmark_markdown(Array[BenchmarkResult]) -> String
 
 pub fn benchmark_n_queens(Int) -> BenchmarkResult
+
+pub fn benchmark_regressions(BenchmarkArtifactSuite, BenchmarkArtifactSuite, Int) -> Array[String]
 
 pub fn benchmark_report(Array[BenchmarkResult]) -> String
 
@@ -64,9 +140,21 @@ pub fn benchmark_work(Array[BenchmarkResult]) -> Int
 
 pub fn benchmarks_pass(Array[BenchmarkResult]) -> Bool
 
+pub fn best_fit_bin(AllocationInstance, AllocationPlan, Int) -> Int?
+
+pub fn best_fit_decreasing(AllocationInstance) -> AllocationPlan
+
 pub fn best_heuristic(Array[HeuristicResult]) -> HeuristicResult?
 
 pub fn best_heuristic_nodes(Array[HeuristicResult]) -> Int?
+
+pub fn best_objective_row(Array[Array[Int]], Array[PortfolioDirection]) -> Array[Int]?
+
+pub fn best_scenario(Array[ScenarioEvaluation], Bool) -> ScenarioEvaluation?
+
+pub fn best_score(SolutionPool, Int) -> Int?
+
+pub fn best_solution(Solver, Array[PortfolioObjectiveTerm]) -> Solution?
 
 pub fn between(Int, Int, Int) -> Constraint
 
@@ -76,21 +164,67 @@ pub fn binary_sequence(Int, Int) -> SequenceModel?
 
 pub fn binary_transitions() -> Array[Array[Int]]
 
+pub fn bipartite_matching(Int, Int, FiniteRelation) -> Array[RelationPair]
+
+pub fn bipartite_network(Int, Int, FiniteRelation) -> CapacityNetwork
+
 pub fn boolean_circuit() -> BooleanCircuit
 
 pub fn boolean_domain() -> Domain
 
+pub fn boolean_indicators(Array[Bool]) -> Array[Int]
+
 pub fn boolean_scenario() -> Scenario
+
+pub fn boolean_signature(Array[Bool]) -> Int
 
 pub fn boolean_truth_table(String) -> Array[Array[Int]]?
 
 pub fn boolean_variable(Solver, String) -> Int
 
+pub fn bottleneck_order(Array[ResourceMetric]) -> Array[Int]
+
+pub fn bounded_quality_score(Int) -> Int
+
+pub fn burst_queue(Int, Int, Int, Int) -> QueueSimulation?
+
+pub fn calendar_active(Array[CalendarWindow], Int) -> Int
+
 pub fn calendar_chain(Array[Int], Int) -> CalendarModel?
+
+pub fn calendar_clip(Array[CalendarWindow], Int, Int) -> Array[CalendarWindow]
+
+pub fn calendar_covered_duration(Array[CalendarWindow]) -> Int
+
+pub fn calendar_first_free(Array[CalendarWindow], Int, Int) -> Int
+
+pub fn calendar_gap_duration(Array[CalendarWindow]) -> Int
 
 pub fn calendar_model(Int, Int) -> CalendarModel?
 
+pub fn calendar_non_overlapping(Array[CalendarWindow]) -> Bool
+
+pub fn calendar_peak_concurrency(Array[CalendarWindow]) -> Int
+
+pub fn calendar_slots(Int, Int, Int) -> Array[CalendarWindow]
+
+pub fn calendar_summary(Array[CalendarWindow]) -> String
+
+pub fn calendar_window(Int, Int) -> CalendarWindow
+
+pub fn calendar_window_signature(Array[CalendarWindow]) -> Int
+
+pub fn capacity_arc(Int, Int, Int, Int) -> CapacityArc
+
 pub fn capacity_constraint(Array[(Int, Int, Int)], Int) -> ConstraintSet
+
+pub fn capacity_network(Int) -> CapacityNetwork
+
+pub fn capacity_slack(RoutingInstance, RoutingPlan) -> Int
+
+pub fn category_run_lengths(Array[Int], Int) -> Array[Int]
+
+pub fn checkerboard_matrix(Int, Int) -> IntMatrix
 
 pub fn classic_solution_string() -> String
 
@@ -98,9 +232,27 @@ pub fn classic_sudoku() -> Sudoku?
 
 pub fn clique_lower_bound(Array[Int]) -> Int
 
+pub fn collect_solution_pool(Solver, Int, Array[PortfolioObjectiveTerm]) -> SolutionPool
+
+pub fn coloring_count(Array[Int]) -> Int
+
 pub fn coloring_scenario() -> Scenario
 
+pub fn common_domain_values(Array[Domain]) -> IntegerSet
+
+pub fn compare_benchmark_suites(BenchmarkArtifactSuite, BenchmarkArtifactSuite) -> Array[(String, Int, Int)]
+
+pub fn compare_domain_arrays(Array[Domain], Array[Domain]) -> Array[DomainChange]
+
+pub fn compare_evidence(EvidenceBundle, EvidenceBundle) -> Int
+
+pub fn compare_service_sets(Array[ServiceObservation], Array[ServiceObservation]) -> String
+
 pub fn complete_coloring(Int) -> GraphColoring?
+
+pub fn compose_relations(FiniteRelation, FiniteRelation) -> FiniteRelation?
+
+pub fn constraint_builder() -> ConstraintBuilder
 
 pub fn constraint_info(Constraint) -> ConstraintInfo
 
@@ -108,19 +260,37 @@ pub fn constraint_kind(Constraint) -> ConstraintKind
 
 pub fn constraint_label(Constraint) -> String
 
+pub fn constraint_recipe(ConstraintBuilder) -> ConstraintRecipe
+
 pub fn constraint_set() -> ConstraintSet
 
 pub fn constraint_variables(Constraint) -> Array[Int]
 
 pub fn count_bundle(Array[Int], Int, Int) -> ConstraintSet
 
+pub fn count_false(Array[Bool]) -> Int
+
+pub fn count_in_range(Array[Int], Int, Int) -> Int
+
+pub fn count_true(Array[Bool]) -> Int
+
 pub fn count_value(Array[Int], Int, Int) -> Constraint
 
+pub fn covered_duration(Array[TimelineInterval]) -> Int
+
+pub fn critical_operations(ManufacturingInstance, ManufacturingSchedule) -> Array[Int]
+
 pub fn cumulative(Array[(Int, Int, Int)], Int) -> Constraint
+
+pub fn custom_event_kind() -> SimulationEventKind
+
+pub fn customers_by_depot_distance(RoutingInstance) -> Array[Int]
 
 pub fn cycle_coloring(Int, Int) -> GraphColoring?
 
 pub fn cyclic_different(Array[Int]) -> ConstraintSet
+
+pub fn cyclic_latin_puzzle(Int) -> LatinPuzzle?
 
 pub fn decision_step(Int, Int, Bool, Int) -> DecisionStep
 
@@ -130,17 +300,37 @@ pub fn default_model_limits() -> ModelLimits
 
 pub fn default_search_config() -> SearchConfig
 
+pub fn demand_first_plan(RoutingInstance) -> RoutingPlan
+
 pub fn descending_value_config() -> SearchConfig
 
+pub fn difference_matrix(Array[Int]) -> IntMatrix
+
+pub fn dispatch_schedule(ManufacturingInstance) -> ManufacturingSchedule
+
 pub fn distance(Int, Int, Int) -> Constraint
+
+pub fn distinct_attempt_signatures(Array[SolveAttempt]) -> Int
+
+pub fn distinct_route_vehicles(RoutingPlan) -> Bool
 
 pub fn domain(Int, Int) -> Domain
 
 pub fn domain_add(Domain, Domain) -> Domain?
 
+pub fn domain_array_signature(Array[Domain]) -> Int
+
+pub fn domain_candidate_count(Array[Domain]) -> Int
+
+pub fn domain_catalog() -> DomainCatalog
+
+pub fn domain_change(Int, Domain, Domain) -> DomainChange
+
 pub fn domain_csv(Domain) -> String
 
 pub fn domain_difference(Domain, Domain) -> Domain?
+
+pub fn domain_entry(Int, String, Domain, String) -> DomainEntry
 
 pub fn domain_from_values(Array[Int]) -> Domain
 
@@ -154,6 +344,10 @@ pub fn domain_subtract(Domain, Domain) -> Domain?
 
 pub fn domain_union(Domain, Domain) -> Domain
 
+pub fn due_date_order(ManufacturingInstance) -> Array[Int]
+
+pub fn edge_set_weight(Array[GraphEdge]) -> Int
+
 pub fn eight_queens_solution() -> String?
 
 pub fn element(Int, Array[Int], Int) -> Constraint
@@ -164,27 +358,211 @@ pub fn empty_sudoku() -> Sudoku
 
 pub fn equal(Int, Int) -> Constraint
 
+pub fn equality_matrix(Array[Int]) -> IntMatrix
+
+pub fn equality_relation(Int) -> FiniteRelation
+
+pub fn evaluate_scenario(WhatIfScenario, Int, Bool) -> ScenarioEvaluation
+
+pub fn event_queue() -> EventQueue
+
+pub fn evidence_bundle() -> EvidenceBundle
+
+pub fn evidence_pass_count(EvidenceBundle) -> Int
+
+pub fn evidence_record(String, String, Int, Int, Bool) -> EvidenceRecord
+
+pub fn evidence_summary(EvidenceBundle) -> String
+
 pub fn exactly_k(Array[Int], Int) -> ConstraintSet
 
 pub fn exhaustive_search_config(Int) -> SearchConfig
 
+pub fn farthest_customer(RoutingInstance) -> Int?
+
+pub fn feasible_scenario_count(Array[ScenarioEvaluation]) -> Int
+
 pub fn feature_selection(Int, Int) -> Solver?
+
+pub fn filled_matrix(Int, Int, Int) -> IntMatrix
+
+pub fn finite_relation(Int, Int) -> FiniteRelation
+
+pub fn first_differences(Array[Int]) -> Array[Int]
+
+pub fn first_fit_bin(AllocationInstance, AllocationPlan, Int) -> Int?
+
+pub fn first_late_stop(RoutingInstance, VehicleRoute) -> Int?
 
 pub fn first_solvable_n_queens(Int, Int) -> Int?
 
 pub fn first_unassigned_config() -> SearchConfig
 
+pub fn flow_balance(IntMatrix, Int) -> Int
+
+pub fn flow_conserved(IntMatrix, Int, Int) -> Bool
+
+pub fn flow_in(IntMatrix, Int) -> Int
+
+pub fn flow_out(IntMatrix, Int) -> Int
+
 pub fn flow_shop(Array[(String, Int, Int)], Int) -> ResourceSchedule?
 
+pub fn fm_abs(Int) -> Int
+
+pub fn fm_alternating_sum(Array[Int]) -> Int
+
+pub fn fm_argmax(Array[Int]) -> Int?
+
+pub fn fm_argmin(Array[Int]) -> Int?
+
+pub fn fm_arithmetic_mean(Int, Int) -> Int
+
+pub fn fm_bucket(Int, Int, Int) -> Int
+
+pub fn fm_ceil_div(Int, Int) -> Int
+
+pub fn fm_checksum(Array[Int]) -> Int
+
+pub fn fm_choose(Int, Int) -> Int
+
+pub fn fm_chunk(Array[Int], Int) -> Array[Array[Int]]
+
+pub fn fm_clamp(Int, Int, Int) -> Int
+
+pub fn fm_clamp_array(Array[Int], Int, Int) -> Array[Int]
+
+pub fn fm_contains_all(Array[Int], Array[Int]) -> Bool
+
+pub fn fm_count_primes(Int, Int) -> Int
+
+pub fn fm_count_value(Array[Int], Int) -> Int
+
+pub fn fm_difference(Array[Int], Array[Int]) -> Array[Int]
+
+pub fn fm_distance(Int, Int) -> Int
+
+pub fn fm_dot(Array[Int], Array[Int]) -> Int
+
+pub fn fm_drop(Array[Int], Int) -> Array[Int]
+
+pub fn fm_factorial(Int) -> Int
+
+pub fn fm_floor_div(Int, Int) -> Int
+
+pub fn fm_gcd(Int, Int) -> Int
+
+pub fn fm_hamming(Array[Int], Array[Int]) -> Int
+
+pub fn fm_identity_permutation(Int) -> Array[Int]
+
+pub fn fm_interpolate(Int, Int, Int, Int) -> Int
+
+pub fn fm_intersection(Array[Int], Array[Int]) -> Array[Int]
+
+pub fn fm_is_even(Int) -> Bool
+
+pub fn fm_is_odd(Int) -> Bool
+
+pub fn fm_is_permutation(Array[Int], Int) -> Bool
+
+pub fn fm_is_prime(Int) -> Bool
+
+pub fn fm_is_sorted(Array[Int]) -> Bool
+
+pub fn fm_is_strictly_sorted(Array[Int]) -> Bool
+
+pub fn fm_l1(Array[Int]) -> Int
+
+pub fn fm_lcm(Int, Int) -> Int
+
+pub fn fm_linf(Array[Int]) -> Int
+
+pub fn fm_manhattan(Array[Int], Array[Int]) -> Int
+
+pub fn fm_map_sign(Array[Int]) -> Array[Int]
+
+pub fn fm_max(Int, Int) -> Int
+
+pub fn fm_midpoint(Int, Int) -> Int
+
+pub fn fm_min(Int, Int) -> Int
+
+pub fn fm_mod_positive(Int, Int) -> Int
+
+pub fn fm_next_prime(Int) -> Int
+
+pub fn fm_nonzero(Array[Int]) -> Array[Int]
+
+pub fn fm_percent(Int, Int) -> Int
+
+pub fn fm_permutation_parity(Array[Int]) -> Int
+
+pub fn fm_pow(Int, Int) -> Int
+
+pub fn fm_prefix(Array[Int]) -> Array[Int]
+
+pub fn fm_quantize(Int, Int) -> Int
+
+pub fn fm_range(Array[Int]) -> Int
+
+pub fn fm_range_sum(Int, Int) -> Int
+
+pub fn fm_rank(Int, Array[Int]) -> Int
+
+pub fn fm_repeat(Int, Int) -> Array[Int]
+
+pub fn fm_reverse(Array[Int]) -> Array[Int]
+
+pub fn fm_rotate(Array[Int], Int) -> Array[Int]
+
+pub fn fm_saturating_add(Int, Int, Int) -> Int
+
+pub fn fm_saturating_sub(Int, Int, Int) -> Int
+
+pub fn fm_sign(Int) -> Int
+
+pub fn fm_signum_sum(Array[Int]) -> Int
+
+pub fn fm_sorted(Array[Int]) -> Array[Int]
+
+pub fn fm_suffix(Array[Int]) -> Array[Int]
+
+pub fn fm_swap(Array[Int], Int, Int) -> Bool
+
+pub fn fm_take(Array[Int], Int) -> Array[Int]
+
+pub fn fm_union(Array[Int], Array[Int]) -> Array[Int]
+
+pub fn fm_unique(Array[Int]) -> Array[Int]
+
+pub fn fm_weighted_average(Array[Int], Array[Int]) -> Int
+
+pub fn fm_weighted_sum(Array[Int], Array[Int]) -> Int
+
+pub fn fm_wrap(Int, Int, Int) -> Int
+
+pub fn free_slot_duration(Array[CalendarWindow], Array[CalendarWindow]) -> Int
+
+pub fn free_slots(Array[CalendarWindow], Array[CalendarWindow]) -> Array[Int]
+
 pub fn graph_coloring(Int, Int, Array[(Int, Int)]) -> GraphColoring?
+
+pub fn graph_edge(Int, Int, Int) -> GraphEdge
 
 pub fn greater_equal(Int, Int) -> Constraint
 
 pub fn greater_than(Int, Int) -> Constraint
 
+pub fn greedy_utility_subset(Array[UtilityItem], Int) -> Array[Int]
+
 pub fn grid_coloring(Int, Int, Int) -> GraphColoring?
 
+pub fn grid_routing_points(Int, Int) -> Array[RoutingPoint]
+
 pub fn group_bounds(Array[Int], Int, Int) -> ConstraintSet
+
+pub fn heaviest_item(AllocationInstance, AllocationPlan, Int) -> Int?
 
 pub fn heuristic_markdown(Array[HeuristicResult]) -> String
 
@@ -192,17 +570,101 @@ pub fn heuristic_result(String, Int, SearchStats) -> HeuristicResult
 
 pub fn heuristics_agree(Array[HeuristicResult]) -> Bool
 
+pub fn identity_matrix(Int) -> IntMatrix
+
+pub fn improve_allocation(AllocationInstance, AllocationPlan) -> Int
+
+pub fn improve_allocation_once(AllocationInstance, AllocationPlan) -> Bool
+
+pub fn improve_two_opt(RoutingInstance, RoutingPlan) -> Int
+
+pub fn improve_utility_subset(Array[UtilityItem], Array[Int], Int) -> Array[Int]
+
 pub fn increasing_chain(Array[Int]) -> ConstraintSet
+
+pub fn indicator_rate(Array[Int], Int) -> Int
+
+pub fn indicator_sum(Array[Int], Int) -> Int
+
+pub fn int_matrix(Int, Int) -> IntMatrix
+
+pub fn int_matrix_from_values(Int, Int, Array[Int]) -> IntMatrix?
+
+pub fn integer_correlation(Array[Int], Array[Int]) -> Int?
+
+pub fn integer_covariance(Array[Int], Array[Int], Int) -> Int?
+
+pub fn integer_histogram(Int, Int, Int) -> IntegerHistogram
+
+pub fn integer_indicators(Array[Int], Int) -> Array[Int]
+
+pub fn integer_mean(Array[Int]) -> Int
+
+pub fn integer_median(Array[Int]) -> Int?
+
+pub fn integer_mode(Array[Int]) -> Int?
+
+pub fn integer_objective(Array[Int], Array[PortfolioDirection]) -> IntegerObjective
+
+pub fn integer_outliers(Array[Int], Int) -> Array[Int]
+
+pub fn integer_percentile(Array[Int], Int) -> Int?
+
+pub fn integer_regression(Array[Int], Array[Int]) -> IntegerRegression?
+
+pub fn integer_set(Array[Int]) -> IntegerSet
+
+pub fn integer_set_range(Int, Int) -> IntegerSet
+
+pub fn integer_sets_equal(IntegerSet, IntegerSet) -> Bool
+
+pub fn integer_sqrt(Int) -> Int
+
+pub fn integer_stddev(Array[Int]) -> Int
+
+pub fn integer_sum(Array[Int]) -> Int
+
+pub fn integer_summary(Array[Int]) -> IntegerSummary
+
+pub fn integer_tokens(String) -> Array[Int]
+
+pub fn integer_variance(Array[Int]) -> Int
 
 pub fn interval_cover(Int, Array[(Int, Int)]) -> SetCovering?
 
+pub fn intervals_at(Array[TimelineInterval], Int) -> Array[Int]
+
+pub fn is_monotone_route(VehicleRoute) -> Bool
+
+pub fn job_operations(ManufacturingInstance, Int) -> Array[Int]
+
+pub fn key_value(Array[(String, String)], String) -> String?
+
 pub fn knapsack(Array[String], Array[Int], Array[Int], Int) -> Knapsack?
 
+pub fn largest_service_order(Array[ServiceObservation]) -> Int?
+
+pub fn last_job_operation(ManufacturingInstance, Int) -> Int?
+
+pub fn late_jobs(ManufacturingInstance, ManufacturingSchedule) -> Array[Int]
+
+pub fn late_observations(Array[ServiceObservation]) -> Array[Int]
+
+pub fn late_project_tasks(ProjectPlan, Array[Int]) -> Array[Int]
+
+pub fn latest_service_order(Array[ServiceObservation]) -> Int?
+
+pub fn latin_puzzle(Int) -> LatinPuzzle?
+
 pub fn latin_square(Int) -> LatinSquare?
+
+pub fn least_loaded_bin(AllocationInstance, AllocationPlan, Int) -> Int?
 
 pub fn less_equal(Int, Int) -> Constraint
 
 pub fn less_than(Int, Int) -> Constraint
+
+pub fn less_than_relation(Int, Int) -> FiniteRelation
 
 pub fn less_than_table(Array[Int]) -> RelationTable?
 
@@ -210,11 +672,55 @@ pub fn linear(Array[(Int, Int)], Int) -> Constraint
 
 pub fn linear_builder() -> LinearBuilder
 
+pub fn linear_forecast(Array[Int], Int) -> Array[Int]
+
 pub fn linear_greater_equal(Array[(Int, Int)], Int) -> Constraint
 
 pub fn linear_less_equal(Array[(Int, Int)], Int) -> Constraint
 
+pub fn lines_within_width(String, Int) -> Bool
+
+pub fn longest_assignment_run(Array[Int]) -> Int
+
+pub fn longest_line(String) -> Int
+
+pub fn loosest_resource(Array[ResourceMetric]) -> Int?
+
+pub fn machine_busy_time(ManufacturingInstance, ManufacturingSchedule, Int) -> Int
+
+pub fn machine_operations(ManufacturingInstance, Int) -> Array[Int]
+
+pub fn machine_setup_transitions(ManufacturingInstance, ManufacturingSchedule, Int) -> Int
+
+pub fn machine_spec(Int, String, Int) -> MachineSpec
+
+pub fn machine_utilization(ManufacturingInstance, ManufacturingSchedule, Int) -> Int
+
 pub fn magic_square(Int) -> MagicSquare?
+
+pub fn manufacturing_feasible(ManufacturingInstance, ManufacturingSchedule) -> Bool
+
+pub fn manufacturing_instance(Array[MachineSpec], Array[ManufacturingOperation], Array[Array[Int]]) -> ManufacturingInstance?
+
+pub fn manufacturing_jobs(ManufacturingInstance) -> Array[Int]
+
+pub fn manufacturing_makespan(ManufacturingInstance, ManufacturingSchedule) -> Int
+
+pub fn manufacturing_objective(ManufacturingInstance, ManufacturingSchedule) -> Int
+
+pub fn manufacturing_operation(Int, Int, Int, Int, Int, Int, Int, Int) -> ManufacturingOperation
+
+pub fn manufacturing_render(ManufacturingInstance, ManufacturingSchedule) -> String
+
+pub fn manufacturing_schedule(ManufacturingInstance) -> ManufacturingSchedule
+
+pub fn manufacturing_setup_work(ManufacturingInstance) -> Int
+
+pub fn manufacturing_signature(ManufacturingInstance, ManufacturingSchedule) -> Int
+
+pub fn manufacturing_tardiness(ManufacturingInstance, ManufacturingSchedule) -> Int
+
+pub fn manufacturing_work(ManufacturingInstance) -> Int
 
 pub fn matrix_all_different(Array[Array[Int]], Int, Int) -> ConstraintSet?
 
@@ -228,15 +734,45 @@ pub fn maximum_degree_config() -> SearchConfig
 
 pub fn median_value_config() -> SearchConfig
 
+pub fn merge_calendar_windows(Array[CalendarWindow]) -> Array[CalendarWindow]
+
+pub fn merge_timeline_intervals(Array[TimelineInterval]) -> Array[TimelineInterval]
+
 pub fn minimize() -> OptimizationDirection
 
 pub fn minimum(Array[Int], Int) -> Constraint
 
+pub fn minimum_capacity_slack(RoutingInstance, RoutingPlan) -> Int
+
+pub fn minimum_residual_capacity(AllocationInstance, AllocationPlan) -> Int
+
+pub fn missing_assignment_categories(Array[Int], Int) -> Array[Int]
+
+pub fn model_evidence(ModelReport) -> EvidenceBundle
+
 pub fn model_limits(Int, Int, Int) -> ModelLimits
+
+pub fn model_report(String, Solver, Bool, Int) -> ModelReport
+
+pub fn model_report_header() -> String
+
+pub fn model_reports_signature(Array[ModelReport]) -> Int
+
+pub fn model_schema(String) -> ModelSchema
+
+pub fn most_expensive_report(Array[ModelReport]) -> ModelReport?
+
+pub fn most_valuable_item(AllocationInstance, AllocationPlan, Int) -> Int?
+
+pub fn movable_task(ProjectPlan, Array[Int]) -> Int?
+
+pub fn moving_average(Array[Int], Int) -> Array[Int]
 
 pub fn n_queens(Int) -> NQueens?
 
 pub fn n_queens_with_first_column(Int, Int) -> NQueens?
+
+pub fn nearest_neighbor_plan(RoutingInstance) -> RoutingPlan
 
 pub fn new_model() -> ModelBuilder
 
@@ -250,6 +786,12 @@ pub fn non_overlapping_intervals(Array[(Int, Int)]) -> ConstraintSet
 
 pub fn nondecreasing_chain(Array[Int]) -> ConstraintSet
 
+pub fn nonogram_line(Int, Array[Int]) -> NonogramLine?
+
+pub fn nonogram_puzzle(Array[NonogramLine], Array[NonogramLine]) -> NonogramPuzzle?
+
+pub fn normalize_objective(Int, Int, Int) -> Int
+
 pub fn not_distance(Int, Int, Int) -> Constraint
 
 pub fn not_equal(Int, Int) -> Constraint
@@ -260,15 +802,139 @@ pub fn objective(Array[ObjectiveTerm]) -> Objective
 
 pub fn objective_from_directions(Array[Int], Array[OptimizationDirection]) -> Objective?
 
+pub fn objective_meets(PortfolioDirection, Int, Int) -> Bool
+
+pub fn objective_row_signature(Array[Int]) -> Int
+
 pub fn objective_term(Int, OptimizationDirection, Int) -> ObjectiveTerm
+
+pub fn observations_from_times(Array[Int], Array[Int], Int) -> Array[ServiceObservation]
+
+pub fn occupied_slots(Array[CalendarWindow], Array[CalendarWindow]) -> Array[Int]
+
+pub fn on_time_observations(Array[ServiceObservation]) -> Array[Int]
 
 pub fn one_hot(Array[Int]) -> ConstraintSet
 
+pub fn operation_finish(ManufacturingInstance, ManufacturingSchedule, Int) -> Int
+
+pub fn operational_backlog(OperationalLedger) -> Int
+
+pub fn operational_capacity_ok(OperationalLedger, Int) -> Bool
+
+pub fn operational_delta(OperationalSummary, OperationalSummary) -> OperationalSummary
+
+pub fn operational_failed() -> OperationalState
+
+pub fn operational_health_score(OperationalLedger) -> Int
+
+pub fn operational_ledger() -> OperationalLedger
+
+pub fn operational_merge(OperationalLedger, OperationalLedger) -> OperationalLedger
+
+pub fn operational_next_state(OperationalState, Bool) -> OperationalState
+
+pub fn operational_queued() -> OperationalState
+
+pub fn operational_record(String, OperationalState, Int, Int, Int, Int, Int) -> OperationalRecord
+
+pub fn operational_record_duration(OperationalRecord) -> Int
+
+pub fn operational_record_failure(OperationalRecord) -> Bool
+
+pub fn operational_record_repair(OperationalRecord) -> OperationalRecord
+
+pub fn operational_record_retryable(OperationalRecord) -> Bool
+
+pub fn operational_record_success(OperationalRecord) -> Bool
+
+pub fn operational_record_terminal(OperationalRecord) -> Bool
+
+pub fn operational_record_valid(OperationalRecord) -> Bool
+
+pub fn operational_records_sorted_by_finish(Array[OperationalRecord]) -> Array[OperationalRecord]
+
+pub fn operational_records_terminal(Array[OperationalRecord]) -> Bool
+
+pub fn operational_records_total_output(Array[OperationalRecord]) -> Int
+
+pub fn operational_retry_state(OperationalRecord) -> OperationalState
+
+pub fn operational_running() -> OperationalState
+
+pub fn operational_score(Int, Int, Int) -> Int
+
+pub fn operational_skipped() -> OperationalState
+
+pub fn operational_state_equal(OperationalState, OperationalState) -> Bool
+
+pub fn operational_state_name(OperationalState) -> String
+
+pub fn operational_state_terminal(OperationalState) -> Bool
+
+pub fn operational_succeeded() -> OperationalState
+
+pub fn operational_summary_balance(OperationalSummary) -> Bool
+
+pub fn operational_summary_report(OperationalSummary) -> String
+
+pub fn operational_summary_valid(OperationalSummary) -> Bool
+
+pub fn operational_window(OperationalLedger, Int, Int) -> Array[OperationalRecord]
+
+pub fn operational_window_output(OperationalLedger, Int, Int) -> Int
+
+pub fn overloaded_capacity_points(ProjectPlan, Array[Int]) -> Array[PlanningCapacityPoint]
+
+pub fn overloaded_resources(Array[ResourceMetric]) -> Array[Int]
+
+pub fn pairwise_assignment_changes(Array[Int]) -> Bool
+
+pub fn pairwise_distance_sum(Array[Int]) -> Int
+
+pub fn pareto_rows(Array[Array[Int]], Array[PortfolioDirection]) -> Array[Array[Int]]
+
+pub fn parse_csv(String) -> Array[Array[String]]
+
+pub fn parse_csv_row(String) -> Array[String]
+
 pub fn parse_domain(String) -> Domain?
+
+pub fn parse_edge_list(String, Int, Bool) -> WeightedGraph?
+
+pub fn parse_int_matrix(String) -> IntMatrix?
 
 pub fn parse_integer_list(String) -> Array[Int]?
 
 pub fn parse_integer_sequence(String) -> Array[Int]?
+
+pub fn parse_key_values(String) -> Array[(String, String)]
+
+pub fn plan_csv(RoutingPlan) -> String
+
+pub fn plan_distance(RoutingInstance, RoutingPlan) -> Int
+
+pub fn plan_load(RoutingInstance, RoutingPlan) -> Int
+
+pub fn plan_makespan(RoutingInstance, RoutingPlan) -> Int
+
+pub fn plan_objective(RoutingInstance, RoutingPlan) -> Int
+
+pub fn plan_visit_count(RoutingPlan) -> Int
+
+pub fn planning_capacity_point(Int, Int, Int, Int) -> PlanningCapacityPoint
+
+pub fn planning_chain(Int, Int, Int, Int, Int, Int) -> ProjectPlan?
+
+pub fn planning_dependency(Int, Int, Int) -> PlanningDependency
+
+pub fn planning_task(Int, String, Int, Int, Int) -> PlanningTask
+
+pub fn portfolio_audit(SolutionPool) -> PortfolioAudit
+
+pub fn portfolio_direction(Bool) -> PortfolioDirection
+
+pub fn portfolio_objective_term(String, PortfolioDirection, Int) -> PortfolioObjectiveTerm
 
 pub fn post_absolute_table(Solver, Int, Int, Domain) -> Unit
 
@@ -281,6 +947,8 @@ pub fn post_assignments(Solver, Array[Int], Array[Int]) -> Bool
 pub fn post_at_most_one(Solver, Array[Int]) -> Unit
 
 pub fn post_binary_table(Solver, Int, Int, RelationTable) -> Bool
+
+pub fn post_binary_vector(ConstraintBuilder, Array[Int]) -> Bool
 
 pub fn post_boolean_and(Solver, Int, Int, Int) -> Unit
 
@@ -304,11 +972,15 @@ pub fn post_exactly_k(Solver, Array[Int], Int) -> Unit
 
 pub fn post_exactly_one(Solver, Array[Int]) -> Unit
 
+pub fn post_indicator(ConstraintBuilder, Int, Int, Int) -> Bool
+
 pub fn post_maximum_table(Solver, Int, Int, Int, Domain, Domain) -> Unit
 
 pub fn post_minimum_table(Solver, Int, Int, Int, Domain, Domain) -> Unit
 
 pub fn post_modulo_table(Solver, Int, Int, Int, Domain, Domain) -> Bool
+
+pub fn post_one_hot(ConstraintBuilder, Array[Int]) -> Bool
 
 pub fn post_pairwise_different(Solver, Array[Int]) -> Unit
 
@@ -322,21 +994,143 @@ pub fn post_relation_pairs(Solver, Int, Int, Domain, Domain, (Int, Int) -> Bool)
 
 pub fn post_subtraction(Solver, Int, Int, Int, Domain, Domain) -> Unit
 
+pub fn primary_ties(SolutionPool) -> Array[SolutionRecord]
+
 pub fn probe_batch() -> ProbeBatch
 
+pub fn project_capacity_points(ProjectPlan, Array[Int]) -> Array[PlanningCapacityPoint]
+
+pub fn project_dependency_count(ProjectPlan) -> Int
+
+pub fn project_plan(Array[PlanningTask], Int, Array[Int]) -> ProjectPlan?
+
+pub fn project_planning_report(ProjectPlan, Array[Int]) -> String
+
+pub fn project_predecessor_count(ProjectPlan) -> Int
+
+pub fn project_schedule_score(ProjectPlan, Array[Int]) -> Int
+
+pub fn project_tardiness(ProjectPlan, Array[Int]) -> Int
+
+pub fn pruning_explanation() -> PruningExplanation
+
+pub fn pruning_reason(Int, Int, String, String) -> PruningReason
+
+pub fn quality_gate_result(String, QualityStatus, Int, Int, String) -> QualityGateResult
+
+pub fn quality_review() -> QualityReview
+
+pub fn quality_score(QualityReview) -> Int
+
+pub fn queue_length_trace(QueueSimulation) -> Int
+
+pub fn queue_simulation(Int, Array[SimulationEntity]) -> QueueSimulation?
+
 pub fn quota_sequence(Int, Int, Int, Int, Int) -> SequenceModel?
+
+pub fn range_completion(Array[Int], Int, Int) -> Int
+
+pub fn rebalance(AllocationInstance, AllocationPlan) -> Int
+
+pub fn rebalance_once(AllocationInstance, AllocationPlan) -> Bool
+
+pub fn recipe_balanced_binary(ConstraintRecipe, String, Int, Int) -> Array[Int]
+
+pub fn recipe_coloring(ConstraintRecipe, String, Int, Int, Array[(Int, Int)]) -> Array[Int]
+
+pub fn recipe_coverage(ConstraintRecipe, String, Int, Int, Int) -> Array[Int]
+
+pub fn recipe_interval_chain(ConstraintRecipe, String, Int, Int, Int) -> Array[Int]
+
+pub fn recipe_knapsack(ConstraintRecipe, String, Array[Int], Int) -> Array[Int]
+
+pub fn recipe_latin(ConstraintRecipe, String, Int) -> Array[Int]
+
+pub fn recipe_magic_square(ConstraintRecipe, String, Int) -> Array[Int]
+
+pub fn recipe_permutation(ConstraintRecipe, String, Int) -> Array[Int]
+
+pub fn recipe_resource_chain(ConstraintRecipe, String, Int, Int, Int, Int, Int) -> Array[Int]
+
+pub fn recipe_result() -> RecipeResult
+
+pub fn recipe_rotating_roster(ConstraintRecipe, String, Int, Int) -> Array[Int]
+
+pub fn recipe_sequence(ConstraintRecipe, String, Int, Int, Int) -> Array[Int]
+
+pub fn recommended_capacity(ResourceMetric, Int) -> Int
+
+pub fn rectangle_sum(IntMatrix, Int, Int, Int, Int) -> Int?
+
+pub fn redact_key_values(String, Array[String], String) -> String
+
+pub fn regressed(Int, Int, Int) -> Bool
+
+pub fn relation_pair(Int, Int) -> RelationPair
 
 pub fn relation_pairs(Domain, Domain, (Int, Int) -> Bool) -> Array[Array[Int]]
 
 pub fn relation_table(Array[Array[Int]]) -> RelationTable?
 
+pub fn render_csv(Array[Array[String]]) -> String
+
+pub fn render_csv_row(Array[String]) -> String
+
 pub fn render_integer_sequence(Array[Int]) -> String
 
+pub fn render_model_reports(Array[ModelReport]) -> String
+
+pub fn repair_capacity(RoutingInstance, RoutingPlan) -> Int
+
 pub fn repeat_benchmark(String, Int, () -> BenchmarkResult) -> BenchmarkResult
+
+pub fn replace_text(String, String, String) -> String
+
+pub fn report_within_tolerance(ModelReport, ModelReport, Int) -> Bool
+
+pub fn report_work_change_percent(ModelReport, ModelReport) -> Int?
+
+pub fn residual_reachable(IntMatrix, Int) -> Array[Int]
+
+pub fn resource_balance_score(Array[ResourceMetric]) -> Int
+
+pub fn resource_metric(Int, Int, Array[Int]) -> ResourceMetric
+
+pub fn resource_metrics_report(Array[ResourceMetric]) -> String
+
+pub fn resource_metrics_signature(Array[ResourceMetric]) -> Int
 
 pub fn resource_scenario() -> Scenario
 
 pub fn resource_schedule(Int, Int) -> ResourceSchedule?
+
+pub fn resource_timeline(Int, Array[Int]) -> ResourceTimeline?
+
+pub fn result_counter() -> ResultCounter
+
+pub fn review_project(ProjectPlan, Array[Int]) -> QualityReview
+
+pub fn review_routing(RoutingInstance, RoutingPlan) -> QualityReview
+
+pub fn review_solver(Solver, Solution?) -> QualityReview
+
+pub fn review_timeline(ResourceTimeline) -> QualityReview
+
+pub fn risk_band(Int) -> RiskBand
+
+pub fn risk_band_name(RiskBand) -> String
+
+pub fn risk_item(Int, String, Int, Int, Int) -> RiskItem
+
+pub fn risk_meets_target(RiskItem, Int) -> Bool
+
+pub fn risk_priority(RiskItem) -> Int
+
+pub fn risk_scenario(Array[RiskItem], Int) -> RiskScenario
+
+pub fn risk_sensitivity(RiskItem, Int) -> Int
+
+pub fn rolling_majority(Array[Int], Int) -> Array[Int]
 
 pub fn roster_model(Int, Int, Int) -> RosterModel?
 
@@ -344,11 +1138,63 @@ pub fn rotating_roster(Int, Int) -> RosterModel?
 
 pub fn rotating_schedule(Int, Int, Int) -> ScheduleProblem?
 
+pub fn round_robin_plan(RoutingInstance) -> RoutingPlan
+
+pub fn route_arrivals(RoutingInstance, VehicleRoute) -> Array[Int]
+
+pub fn route_crossings(RoutingInstance, VehicleRoute) -> Int
+
+pub fn route_csv(VehicleRoute) -> String
+
+pub fn route_distance(RoutingInstance, VehicleRoute) -> Int
+
+pub fn route_load(RoutingInstance, VehicleRoute) -> Int
+
+pub fn route_objective(RoutingInstance, VehicleRoute) -> Int
+
+pub fn route_service(RoutingInstance, VehicleRoute) -> Int
+
+pub fn route_slacks(RoutingInstance, VehicleRoute) -> Array[Int]
+
+pub fn routing_ids_are_dense(RoutingInstance) -> Bool
+
+pub fn routing_instance(Array[RoutingPoint], Int, Array[Int]) -> RoutingInstance?
+
+pub fn routing_instance_with_distances(Array[RoutingPoint], Int, Array[Int], Array[Array[Int]]) -> RoutingInstance?
+
+pub fn routing_matrix(RoutingPlan) -> Array[Array[Int]]
+
+pub fn routing_plan(Int) -> RoutingPlan
+
+pub fn routing_point(Int, Int, Int, Int) -> RoutingPoint
+
+pub fn routing_report(RoutingInstance, RoutingPlan) -> RoutingReport
+
+pub fn routing_score(RoutingInstance, RoutingPlan) -> Int
+
+pub fn routing_signature(RoutingInstance, RoutingPlan) -> Int
+
+pub fn same_int_array(Array[Int], Array[Int]) -> Bool
+
+pub fn same_project_order(ProjectPlan, Array[Int], Array[Int]) -> Bool
+
 pub fn scenario(String, Solver, Int) -> Scenario
+
+pub fn scenario_axis(String, Array[Int]) -> ScenarioAxis
+
+pub fn scenario_evaluation_signature(ScenarioEvaluation) -> Int
+
+pub fn scenario_product(Array[ScenarioAxis], Int) -> Array[WhatIfScenario]
+
+pub fn scenario_product_size(Array[ScenarioAxis], Int) -> Int
 
 pub fn scenario_report(Int) -> String
 
+pub fn scenario_score_spread(Array[ScenarioEvaluation]) -> Int
+
 pub fn scenario_suite() -> Array[Scenario]
+
+pub fn scenario_value(String, Int) -> ScenarioValue
 
 pub fn scenarios_pass(Int) -> Bool
 
@@ -358,19 +1204,81 @@ pub fn schedule_preference(Int, Int, Int, Int) -> SchedulePreference
 
 pub fn schedule_scenario() -> Scenario
 
+pub fn schema_field(Int, String, Int, Int, Int) -> SchemaField
+
+pub fn schemas_compatible(ModelSchema, ModelSchema) -> Bool
+
 pub fn score_preferences(Solution, Array[Int], Array[Int], Array[Int]) -> Int
+
+pub fn score_solution(Solution, Array[PortfolioObjectiveTerm]) -> Array[Int]
 
 pub fn scored_solution(Solution, Int, Int) -> ScoredSolution
 
+pub fn sequence_checksum(Array[Int]) -> Int
+
+pub fn sequence_contains(Array[Int], Array[Int]) -> Bool
+
+pub fn sequence_convolve(Array[Int], Array[Int]) -> Array[Int]
+
+pub fn sequence_cumulative(Array[Int]) -> Array[Int]
+
+pub fn sequence_cyclic_alternates(Array[Int]) -> Bool
+
+pub fn sequence_delta(Array[Int]) -> Array[Int]
+
+pub fn sequence_edit_distance(Array[Int], Array[Int]) -> Int
+
+pub fn sequence_lcs_length(Array[Int], Array[Int]) -> Int
+
 pub fn sequence_model(Int, Int, Int) -> SequenceModel?
+
+pub fn sequence_normalize(Array[Int]) -> Array[Int]
+
+pub fn sequence_report(Array[Int]) -> SequenceReport
+
+pub fn sequence_run_count(Array[Int]) -> Int
+
+pub fn sequence_run_lengths(Array[Int]) -> Array[Int]
+
+pub fn sequence_runs(Array[Int]) -> Array[(Int, Int)]
 
 pub fn sequence_summary(Array[Int]) -> SequenceSummary?
 
+pub fn service_gap(ServiceMetrics, Int) -> Int
+
+pub fn service_ids_dense(Array[ServiceObservation]) -> Bool
+
+pub fn service_ids_ordered(Array[ServiceObservation]) -> Bool
+
+pub fn service_lateness_percentile(Array[ServiceObservation], Int) -> Int?
+
+pub fn service_lateness_values(Array[ServiceObservation]) -> Array[Int]
+
+pub fn service_metrics(Array[ServiceObservation]) -> ServiceMetrics
+
+pub fn service_metrics_signature(Array[ServiceObservation]) -> Int
+
+pub fn service_observation(Int, Int, Int, Int, Int) -> ServiceObservation
+
+pub fn service_score(Array[ServiceObservation], Int, Int) -> Int
+
 pub fn set_covering(Int, Array[Array[Int]], Array[Int]) -> SetCovering?
+
+pub fn setup_time(ManufacturingInstance, Int, Int, Int) -> Int
+
+pub fn shift_project_schedule(ProjectPlan, Array[Int], Int) -> Array[Int]
+
+pub fn shift_timeline(Array[TimelineInterval], Int) -> Array[TimelineInterval]
+
+pub fn simulation_entity(Int, Int, Int, Int) -> SimulationEntity
+
+pub fn simulation_event(Int, Int, Int, Int, SimulationEventKind, Int) -> SimulationEvent
 
 pub fn single_objective(Int, OptimizationDirection) -> Objective
 
 pub fn singleton_domain(Int) -> Domain
+
+pub fn singleton_domain_ids(Array[Domain]) -> Array[Int]
 
 pub fn snapshot_assume(ModelSnapshot, AssumptionSet) -> ModelSnapshot?
 
@@ -386,11 +1294,41 @@ pub fn solution_delta_report(Solution, Solution) -> String
 
 pub fn solution_distance(Solution, Solution) -> Int
 
+pub fn solution_pool(Int, Array[PortfolioObjectiveTerm]) -> SolutionPool
+
+pub fn solution_record(Solution, Array[Int]) -> SolutionRecord
+
+pub fn solution_replace(Solution, Int, Int) -> Solution?
+
+pub fn solution_signature(Solution) -> Int
+
 pub fn solution_values(Solution) -> Array[Int]
 
 pub fn solutions_csv(Array[Solution]) -> String
 
 pub fn solutions_equal(Solution, Solution) -> Bool
+
+pub fn solve_attempt(Int, Bool, Int, SearchStats, Int) -> SolveAttempt
+
+pub fn solve_session(String) -> SolveSession
+
+pub fn solved_report_count(Array[ModelReport]) -> Int
+
+pub fn solver_domain_changes(Solver, Solver) -> Array[DomainChange]
+
+pub fn solver_domains(Solver) -> Array[Domain]
+
+pub fn solver_validation_report(Solver, Solution?) -> ValidationReport
+
+pub fn sort_attempts_by_work(Array[SolveAttempt]) -> Array[SolveAttempt]
+
+pub fn sort_integers(Array[Int]) -> Unit
+
+pub fn sort_scenario_evaluations(Array[ScenarioEvaluation], Bool) -> Array[ScenarioEvaluation]
+
+pub fn source_scale_evidence(Int, Int) -> EvidenceBundle
+
+pub fn speedup_percent(Int, Int) -> Int?
 
 pub fn strong_all_different(Array[Int]) -> ConstraintSet
 
@@ -410,11 +1348,109 @@ pub fn table(Array[Int], Array[Array[Int]]) -> Constraint
 
 pub fn table_scenario() -> Scenario
 
+pub fn tasks_by_slack(ProjectPlan) -> Array[Int]
+
+pub fn text_document(String) -> TextDocument
+
+pub fn text_signature(String) -> Int
+
+pub fn text_token(String, Int, Int) -> TextToken
+
+pub fn tightest_capacity_point(ProjectPlan, Array[Int]) -> PlanningCapacityPoint?
+
+pub fn tightest_resource(Array[ResourceMetric]) -> Int?
+
+pub fn timeline_interval(Int, Int, Int, Int, Int, String) -> TimelineInterval
+
+pub fn timeline_objective(ResourceTimeline) -> Int
+
+pub fn timeline_overlap(TimelineInterval, TimelineInterval) -> Bool
+
+pub fn timeline_resource_metrics(ResourceTimeline) -> Array[ResourceMetric]
+
+pub fn tokenize_text(String) -> Array[TextToken]
+
+pub fn total_actual(Array[ServiceObservation]) -> Int
+
+pub fn total_allocated_value(AllocationInstance, AllocationPlan) -> Int
+
+pub fn total_allocated_weight(AllocationInstance, AllocationPlan) -> Int
+
+pub fn total_promised(Array[ServiceObservation]) -> Int
+
+pub fn total_resource_capacity(Array[ResourceMetric]) -> Int
+
+pub fn total_resource_load(Array[ResourceMetric]) -> Int
+
+pub fn trace_is_ordered(QueueSimulation) -> Bool
+
 pub fn trace_solution(Array[Int], Solution) -> DecisionTrace
 
 pub fn two_shift_roster(Int, Int, Int) -> RosterModel?
 
 pub fn two_way_partition(Array[Int], Int) -> BinPacking?
+
+pub fn unassigned_items(AllocationPlan) -> Array[Int]
+
+pub fn union_domain_values(Array[Domain]) -> IntegerSet
+
+pub fn unserved_count(RoutingInstance, RoutingPlan) -> Int
+
+pub fn utility_best_swap(Array[UtilityItem], Array[Int], Int) -> (Array[Int], Bool)
+
+pub fn utility_item(Int, Int, Int) -> UtilityItem
+
+pub fn utility_subset_value(Array[UtilityItem], Array[Int]) -> Int
+
+pub fn utility_subset_weight(Array[UtilityItem], Array[Int]) -> Int
+
+pub fn validate_allocation(AllocationInstance, AllocationPlan) -> Array[String]
+
+pub fn validate_assignment_domains(ValidationReport, Array[Domain], Array[Int]) -> Bool
+
+pub fn validate_domain_table(ValidationReport, Array[Array[Int]]) -> Bool
+
+pub fn validate_domains(ValidationReport, Array[Domain]) -> Bool
+
+pub fn validate_increasing(ValidationReport, String, Array[Int]) -> Bool
+
+pub fn validate_length(ValidationReport, String, Array[Int], Int) -> Bool
+
+pub fn validate_manufacturing_schedule(ManufacturingInstance, ManufacturingSchedule) -> Array[String]
+
+pub fn validate_matrix_shape(ValidationReport, String, Array[Array[Int]], Int, Int) -> Bool
+
+pub fn validate_membership(ValidationReport, String, Array[Int], Array[Int]) -> Bool
+
+pub fn validate_model(ValidationReport, Solver) -> Bool
+
+pub fn validate_names(ValidationReport, String, Array[String]) -> Bool
+
+pub fn validate_nondecreasing(ValidationReport, String, Array[Int]) -> Bool
+
+pub fn validate_nonnegative(ValidationReport, String, Int) -> Bool
+
+pub fn validate_plan(RoutingInstance, RoutingPlan) -> Array[String]
+
+pub fn validate_range(ValidationReport, String, Int, Int, Int) -> Bool
+
+pub fn validate_route(RoutingInstance, VehicleRoute) -> String?
+
+pub fn validate_routing_report(ValidationReport, RoutingReport) -> Bool
+
+pub fn validate_solution(ValidationReport, Solver, Solution) -> Bool
+
+pub fn validate_text(ValidationReport, String, String) -> Bool
+
+pub fn validate_unique(ValidationReport, String, Array[Int]) -> Bool
+
+pub fn validate_utility_subset(Array[UtilityItem], Array[Int], Int) -> Bool
+
+pub fn validation_issue(String, String, String, ValidationSeverity) -> ValidationIssue
+
+pub fn validation_report() -> ValidationReport
+
+pub fn value_density_plan(AllocationInstance) -> AllocationPlan
 
 pub fn variable(String, Int, Int) -> Variable
 
@@ -422,13 +1458,86 @@ pub fn variable_group(Array[Int]) -> VariableGroup
 
 pub fn variable_with_domain(String, Domain) -> Variable
 
+pub fn vehicle_route(Int) -> VehicleRoute
+
+pub fn vehicle_route_from(Int, Array[Int]) -> VehicleRoute
+
+pub fn weighted_graph(Int, Bool) -> WeightedGraph
+
+pub fn weighted_graph_from_edges(Int, Bool, Array[GraphEdge]) -> WeightedGraph?
+
+pub fn weighted_score(Array[Int], Array[Int]) -> Int
+
 pub fn weighted_sum_bundle(Array[(Int, Int)], Int) -> ConstraintSet
+
+pub fn what_if_scenario(String, Array[ScenarioValue]) -> WhatIfScenario
+
+pub fn within_resource_limit(Array[ResourceMetric], Int) -> Bool
+
+pub fn word_frequency(String) -> Array[(String, Int)]
 
 pub fn workflow_chain(Int) -> Solver?
 
 // Errors
 
 // Types and methods
+pub struct AllocationInstance {
+  items : Array[AllocationItem]
+  capacities : Array[Int]
+  group_limits : Array[(Int, Int, Int, Int)]
+}
+pub fn AllocationInstance::add_group_limit(Self, Int, Int, Int, Int) -> Bool
+pub fn AllocationInstance::bin_count(Self) -> Int
+pub fn AllocationInstance::capacity(Self, Int) -> Int
+pub fn AllocationInstance::item(Self, Int) -> AllocationItem
+pub fn AllocationInstance::item_count(Self) -> Int
+
+pub struct AllocationItem {
+  id : Int
+  weight : Int
+  value : Int
+  group : Int
+}
+pub fn AllocationItem::group(Self) -> Int
+pub fn AllocationItem::id(Self) -> Int
+pub fn AllocationItem::value(Self) -> Int
+pub fn AllocationItem::weight(Self) -> Int
+
+pub struct AllocationPlan {
+  assignments : Array[Int]
+}
+pub fn AllocationPlan::assign(Self, Int, Int) -> Bool
+pub fn AllocationPlan::assigned_bin(Self, Int) -> Int
+pub fn AllocationPlan::assignments(Self) -> Array[Int]
+pub fn AllocationPlan::csv(Self) -> String
+pub fn AllocationPlan::items_in_bin(Self, Int) -> Array[Int]
+pub fn AllocationPlan::unassign(Self, Int) -> Bool
+
+pub struct ArtifactBenchmark {
+  name : String
+  work : Int
+  solved : Bool
+  signature : Int
+}
+pub fn ArtifactBenchmark::describe(Self) -> String
+pub fn ArtifactBenchmark::solved(Self) -> Bool
+pub fn ArtifactBenchmark::work(Self) -> Int
+
+pub struct AssignmentMetrics {
+  count : Int
+  categories : Int
+  minimum : Int
+  maximum : Int
+  spread : Int
+  transitions : Int
+  changes : Int
+}
+pub fn AssignmentMetrics::categories(Self) -> Int
+pub fn AssignmentMetrics::changes(Self) -> Int
+pub fn AssignmentMetrics::count(Self) -> Int
+pub fn AssignmentMetrics::describe(Self) -> String
+pub fn AssignmentMetrics::transitions(Self) -> Int
+
 pub struct AssignmentProblem {
   solver : Solver
   workers : Int
@@ -476,6 +1585,23 @@ pub fn AssumptionSet::get(Self, Int) -> Assumption?
 pub fn AssumptionSet::is_empty(Self) -> Bool
 pub fn AssumptionSet::length(Self) -> Int
 pub fn AssumptionSet::values(Self) -> Array[Assumption]
+
+pub struct BenchmarkArtifactSuite {
+  name : String
+  cases : Array[ArtifactBenchmark]
+}
+pub fn BenchmarkArtifactSuite::add(Self, ArtifactBenchmark) -> Bool
+pub fn BenchmarkArtifactSuite::all_solved(Self) -> Bool
+pub fn BenchmarkArtifactSuite::describe(Self) -> String
+pub fn BenchmarkArtifactSuite::heaviest(Self) -> ArtifactBenchmark?
+pub fn BenchmarkArtifactSuite::length(Self) -> Int
+pub fn BenchmarkArtifactSuite::markdown(Self) -> String
+pub fn BenchmarkArtifactSuite::signature(Self) -> Int
+pub fn BenchmarkArtifactSuite::summary(Self) -> IntegerSummary
+pub fn BenchmarkArtifactSuite::total_work(Self) -> Int
+pub fn BenchmarkArtifactSuite::unique_signatures(Self) -> Bool
+pub fn BenchmarkArtifactSuite::unsolved(Self) -> Int
+pub fn BenchmarkArtifactSuite::work_values(Self) -> Array[Int]
 
 pub struct BenchmarkResult {
   name : String
@@ -602,6 +1728,43 @@ pub fn CalendarTask::name(Self) -> String
 pub fn CalendarTask::resource(Self) -> Int
 pub fn CalendarTask::start(Self) -> Int
 
+pub struct CalendarWindow {
+  start : Int
+  end : Int
+}
+pub fn CalendarWindow::contains(Self, Int) -> Bool
+pub fn CalendarWindow::describe(Self) -> String
+pub fn CalendarWindow::duration(Self) -> Int
+pub fn CalendarWindow::expand(Self, Int) -> Self
+pub fn CalendarWindow::intersection(Self, Self) -> Self?
+pub fn CalendarWindow::overlaps(Self, Self) -> Bool
+pub fn CalendarWindow::shift(Self, Int) -> Self
+pub fn CalendarWindow::touches(Self, Self) -> Bool
+pub fn CalendarWindow::valid(Self) -> Bool
+
+pub struct CapacityArc {
+  from : Int
+  to : Int
+  capacity : Int
+  cost : Int
+}
+
+pub struct CapacityNetwork {
+  vertices : Int
+  arcs : Array[CapacityArc]
+}
+pub fn CapacityNetwork::add_arc(Self, Int, Int, Int, Int) -> Bool
+pub fn CapacityNetwork::arc_count(Self) -> Int
+pub fn CapacityNetwork::arcs(Self) -> Array[CapacityArc]
+pub fn CapacityNetwork::capacity_matrix(Self) -> IntMatrix
+pub fn CapacityNetwork::cut_capacity(Self, Array[Int]) -> Int
+pub fn CapacityNetwork::flow_cost(Self, IntMatrix) -> Int
+pub fn CapacityNetwork::max_flow(Self, Int, Int) -> (Int, IntMatrix)
+pub fn CapacityNetwork::outgoing(Self, Int) -> Array[CapacityArc]
+pub fn CapacityNetwork::signature(Self) -> Int
+pub fn CapacityNetwork::validate_flow(Self, IntMatrix) -> Array[String]
+pub fn CapacityNetwork::vertex_count(Self) -> Int
+
 pub struct ConflictReport {
   satisfiable : Bool
   core : AssumptionSet
@@ -642,6 +1805,37 @@ pub enum Constraint {
   Cumulative(Array[(Int, Int, Int)], Int)
 } derive(@debug.Debug)
 
+pub struct ConstraintBuilder {
+  solver : Solver
+  variables : Array[Int]
+}
+pub fn ConstraintBuilder::add_bool(Self, String) -> Int
+pub fn ConstraintBuilder::add_int(Self, String, Int, Int) -> Int
+pub fn ConstraintBuilder::adjacent_different(Self, Array[Int]) -> Bool
+pub fn ConstraintBuilder::all_different(Self, Array[Int]) -> Bool
+pub fn ConstraintBuilder::at_least_count(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintBuilder::at_most_count(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintBuilder::cumulative(Self, Array[Int], Array[Int], Array[Int], Int) -> Bool
+pub fn ConstraintBuilder::describe(Self) -> String
+pub fn ConstraintBuilder::exact_count(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintBuilder::exact_sum(Self, Array[Int], Int) -> Bool
+pub fn ConstraintBuilder::fix(Self, Int, Int) -> Bool
+pub fn ConstraintBuilder::grid(Self, String, Int, Int, Int, Int) -> Array[Int]
+pub fn ConstraintBuilder::grid_columns(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintBuilder::grid_rows(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintBuilder::minimum_distance(Self, Array[Int], Int) -> Bool
+pub fn ConstraintBuilder::no_overlap(Self, Array[Int], Array[Int]) -> Bool
+pub fn ConstraintBuilder::nondecreasing_chain(Self, Array[Int]) -> Bool
+pub fn ConstraintBuilder::signature(Self) -> Int
+pub fn ConstraintBuilder::solve(Self) -> Solution?
+pub fn ConstraintBuilder::solve_all(Self, Int) -> Array[Solution]
+pub fn ConstraintBuilder::solver(Self) -> Solver
+pub fn ConstraintBuilder::strict_chain(Self, Array[Int]) -> Bool
+pub fn ConstraintBuilder::transition_table(Self, Array[Int], Array[Array[Int]]) -> Bool
+pub fn ConstraintBuilder::variables(Self) -> Array[Int]
+pub fn ConstraintBuilder::weighted_at_least(Self, Array[(Int, Int)], Int) -> Bool
+pub fn ConstraintBuilder::weighted_at_most(Self, Array[(Int, Int)], Int) -> Bool
+
 pub struct ConstraintInfo {
   kind : ConstraintKind
   arity : Int
@@ -661,6 +1855,36 @@ pub enum ConstraintKind {
   ExtensionalConstraint
   SchedulingConstraint
 } derive(Eq, @debug.Debug)
+
+pub struct ConstraintRecipe {
+  builder : ConstraintBuilder
+  result : RecipeResult
+}
+pub fn ConstraintRecipe::builder(Self) -> ConstraintBuilder
+pub fn ConstraintRecipe::describe(Self) -> String
+pub fn ConstraintRecipe::post_adjacent_change(Self, Array[Int]) -> Bool
+pub fn ConstraintRecipe::post_all_different(Self, Array[Int]) -> Bool
+pub fn ConstraintRecipe::post_at_least(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintRecipe::post_at_most(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintRecipe::post_chain(Self, Array[Int]) -> Bool
+pub fn ConstraintRecipe::post_cumulative(Self, Array[Int], Array[Int], Array[Int], Int) -> Bool
+pub fn ConstraintRecipe::post_exact_count(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintRecipe::post_exact_sum(Self, Array[Int], Int) -> Bool
+pub fn ConstraintRecipe::post_fix(Self, Int, Int) -> Bool
+pub fn ConstraintRecipe::post_grid_rules(Self, Array[Int], Int, Int) -> Bool
+pub fn ConstraintRecipe::post_lower(Self, Array[(Int, Int)], Int) -> Bool
+pub fn ConstraintRecipe::post_minimum_distance(Self, Array[Int], Int) -> Bool
+pub fn ConstraintRecipe::post_no_overlap(Self, Array[Int], Array[Int]) -> Bool
+pub fn ConstraintRecipe::post_non_decreasing(Self, Array[Int]) -> Bool
+pub fn ConstraintRecipe::post_transition(Self, Array[Int], Array[Array[Int]]) -> Bool
+pub fn ConstraintRecipe::post_upper(Self, Array[(Int, Int)], Int) -> Bool
+pub fn ConstraintRecipe::recipe_binary_vector(Self, Array[Int]) -> Bool
+pub fn ConstraintRecipe::recipe_one_hot(Self, Array[Int]) -> Bool
+pub fn ConstraintRecipe::result(Self) -> RecipeResult
+pub fn ConstraintRecipe::signature(Self) -> Int
+pub fn ConstraintRecipe::solve(Self) -> Solution?
+pub fn ConstraintRecipe::solve_all(Self, Int) -> Array[Solution]
+pub fn ConstraintRecipe::valid(Self) -> Bool
 
 pub struct ConstraintSet {
   constraints : Array[Constraint]
@@ -750,6 +1974,46 @@ pub fn Domain::size(Self) -> Int
 pub fn Domain::sum_values(Self) -> Int
 pub fn Domain::values(Self) -> Array[Int]
 
+pub struct DomainCatalog {
+  entries : Array[DomainEntry]
+}
+pub fn DomainCatalog::add(Self, String, Domain, String) -> Int?
+pub fn DomainCatalog::available_values(Self) -> Int
+pub fn DomainCatalog::cartesian_size(Self, Int) -> Int
+pub fn DomainCatalog::clone(Self) -> Self
+pub fn DomainCatalog::consistent(Self) -> Bool
+pub fn DomainCatalog::describe(Self) -> String
+pub fn DomainCatalog::empty_entries(Self) -> Array[Int]
+pub fn DomainCatalog::entries(Self) -> Array[DomainEntry]
+pub fn DomainCatalog::entry(Self, Int) -> DomainEntry
+pub fn DomainCatalog::find(Self, String) -> DomainEntry?
+pub fn DomainCatalog::hole_count(Self) -> Int
+pub fn DomainCatalog::intersect_range(Self, Int, Int, Int) -> Bool
+pub fn DomainCatalog::intersect_values(Self, Int, Array[Int]) -> Bool
+pub fn DomainCatalog::length(Self) -> Int
+pub fn DomainCatalog::most_constrained(Self, Int) -> Array[Int]
+pub fn DomainCatalog::names(Self) -> Array[String]
+pub fn DomainCatalog::remove(Self, Int, Int) -> Bool
+pub fn DomainCatalog::restrict_all(Self, Int, Int) -> Int
+pub fn DomainCatalog::signature(Self) -> Int
+pub fn DomainCatalog::singleton_entries(Self) -> Array[(Int, Int)]
+pub fn DomainCatalog::sizes(Self) -> Array[Int]
+pub fn DomainCatalog::tagged_bounds(Self, String) -> (Int, Int)?
+pub fn DomainCatalog::tagged_values(Self, String) -> IntegerSet
+pub fn DomainCatalog::with_tag(Self, String) -> Array[Int]
+
+pub struct DomainChange {
+  variable : Int
+  before : Domain
+  after : Domain
+  removed : Array[Int]
+  added : Array[Int]
+}
+pub fn DomainChange::added_values(Self) -> Array[Int]
+pub fn DomainChange::changed(Self) -> Bool
+pub fn DomainChange::describe(Self) -> String
+pub fn DomainChange::removed_values(Self) -> Array[Int]
+
 pub struct DomainDelta {
   variable : Int
   before : Domain
@@ -759,6 +2023,13 @@ pub fn DomainDelta::after(Self) -> Domain
 pub fn DomainDelta::before(Self) -> Domain
 pub fn DomainDelta::describe(Self) -> String
 pub fn DomainDelta::variable(Self) -> Int
+
+pub struct DomainEntry {
+  id : Int
+  name : String
+  domain : Domain
+  tag : String
+}
 
 pub struct DomainInterval {
   lower : Int
@@ -783,6 +2054,59 @@ pub fn DomainProfile::describe(Self) -> String
 pub fn DomainProfile::interval_count(Self) -> Int
 pub fn DomainProfile::size(Self) -> Int
 
+pub struct EventQueue {
+  events : Array[SimulationEvent]
+}
+pub fn EventQueue::clear(Self) -> Unit
+pub fn EventQueue::length(Self) -> Int
+pub fn EventQueue::peek(Self) -> SimulationEvent?
+pub fn EventQueue::pop(Self) -> SimulationEvent?
+pub fn EventQueue::push(Self, SimulationEvent) -> Bool
+
+pub struct EvidenceBundle {
+  records : Array[EvidenceRecord]
+}
+pub fn EvidenceBundle::add(Self, EvidenceRecord) -> Bool
+pub fn EvidenceBundle::describe(Self) -> String
+pub fn EvidenceBundle::exact(Self, String, String, Int, Int) -> Unit
+pub fn EvidenceBundle::failure_count(Self) -> Int
+pub fn EvidenceBundle::length(Self) -> Int
+pub fn EvidenceBundle::maximum(Self, String, String, Int, Int) -> Unit
+pub fn EvidenceBundle::minimum(Self, String, String, Int, Int) -> Unit
+pub fn EvidenceBundle::passed(Self) -> Bool
+pub fn EvidenceBundle::signature(Self) -> Int
+pub fn EvidenceBundle::values(Self) -> Array[Int]
+
+pub struct EvidenceRecord {
+  name : String
+  metric : String
+  value : Int
+  expected : Int
+  passed : Bool
+}
+pub fn EvidenceRecord::describe(Self) -> String
+pub fn EvidenceRecord::expected(Self) -> Int
+pub fn EvidenceRecord::passed(Self) -> Bool
+pub fn EvidenceRecord::value(Self) -> Int
+
+pub struct FiniteRelation {
+  left_size : Int
+  right_size : Int
+  pairs : Array[RelationPair]
+}
+pub fn FiniteRelation::add(Self, Int, Int) -> Bool
+pub fn FiniteRelation::contains(Self, Int, Int) -> Bool
+pub fn FiniteRelation::functional(Self) -> Bool
+pub fn FiniteRelation::image(Self, Int) -> IntegerSet
+pub fn FiniteRelation::inverse(Self) -> Self
+pub fn FiniteRelation::length(Self) -> Int
+pub fn FiniteRelation::pairs(Self) -> Array[RelationPair]
+pub fn FiniteRelation::preimage(Self, Int) -> IntegerSet
+pub fn FiniteRelation::restrict(Self, IntegerSet, IntegerSet) -> Self
+pub fn FiniteRelation::signature(Self) -> Int
+pub fn FiniteRelation::table(Self) -> Array[Array[Int]]
+pub fn FiniteRelation::total(Self) -> Bool
+
 pub struct GraphColoring {
   solver : Solver
   colors : Array[Int]
@@ -798,6 +2122,15 @@ pub fn GraphColoring::render(Self, Solution) -> String
 pub fn GraphColoring::solve(Self) -> Solution?
 pub fn GraphColoring::solve_all(Self, Int) -> Array[Solution]
 pub fn GraphColoring::stats(Self) -> SearchStats
+
+pub struct GraphEdge {
+  from : Int
+  to : Int
+  weight : Int
+}
+pub fn GraphEdge::from(Self) -> Int
+pub fn GraphEdge::to(Self) -> Int
+pub fn GraphEdge::weight(Self) -> Int
 
 pub struct GuardedSolve {
   status : SolveStatus
@@ -824,6 +2157,112 @@ pub fn HeuristicResult::describe(Self) -> String
 pub fn HeuristicResult::name(Self) -> String
 pub fn HeuristicResult::solutions(Self) -> Int
 pub fn HeuristicResult::stats(Self) -> SearchStats
+
+pub struct IntMatrix {
+  rows : Int
+  columns : Int
+  values : Array[Int]
+}
+pub fn IntMatrix::add(Self, Self) -> Self?
+pub fn IntMatrix::box_blur(Self, Int) -> Self
+pub fn IntMatrix::clamp(Self, Int, Int) -> Unit
+pub fn IntMatrix::column(Self, Int) -> Array[Int]
+pub fn IntMatrix::column_count(Self) -> Int
+pub fn IntMatrix::column_sums(Self) -> Array[Int]
+pub fn IntMatrix::component_size(Self, Int, Int) -> Int
+pub fn IntMatrix::convolve3x3(Self, Array[Int], Int) -> Self?
+pub fn IntMatrix::count(Self, Int) -> Int
+pub fn IntMatrix::csv(Self) -> String
+pub fn IntMatrix::diagonal(Self) -> Array[Int]
+pub fn IntMatrix::fill(Self, Int) -> Unit
+pub fn IntMatrix::get(Self, Int, Int) -> Int
+pub fn IntMatrix::grid_path(Self, (Int, Int), (Int, Int), Int) -> Array[(Int, Int)]?
+pub fn IntMatrix::maximum(Self) -> Int?
+pub fn IntMatrix::minimum(Self) -> Int?
+pub fn IntMatrix::multiply(Self, Self) -> Self?
+pub fn IntMatrix::neighbors4(Self, Int, Int) -> Array[(Int, Int)]
+pub fn IntMatrix::prefix_sum(Self) -> Self
+pub fn IntMatrix::reflect_horizontal(Self) -> Self
+pub fn IntMatrix::reflect_vertical(Self) -> Self
+pub fn IntMatrix::render(Self) -> String
+pub fn IntMatrix::rotate_clockwise(Self) -> Self
+pub fn IntMatrix::row(Self, Int) -> Array[Int]
+pub fn IntMatrix::row_count(Self) -> Int
+pub fn IntMatrix::row_sums(Self) -> Array[Int]
+pub fn IntMatrix::scale(Self, Int) -> Self
+pub fn IntMatrix::set(Self, Int, Int, Int) -> Bool
+pub fn IntMatrix::sign(Self) -> Self
+pub fn IntMatrix::signature(Self) -> Int
+pub fn IntMatrix::subtract(Self, Self) -> Self?
+pub fn IntMatrix::threshold(Self, Int) -> Self
+pub fn IntMatrix::trace(Self) -> Int?
+pub fn IntMatrix::transpose(Self) -> Self
+pub fn IntMatrix::valid_cell(Self, Int, Int) -> Bool
+pub fn IntMatrix::values(Self) -> Array[Int]
+
+pub struct IntegerHistogram {
+  lower : Int
+  width : Int
+  counts : Array[Int]
+}
+pub fn IntegerHistogram::add(Self, Int) -> Bool
+pub fn IntegerHistogram::add_all(Self, Array[Int]) -> Int
+pub fn IntegerHistogram::bucket(Self, Int) -> Int
+pub fn IntegerHistogram::counts(Self) -> Array[Int]
+pub fn IntegerHistogram::peak(Self) -> Int?
+pub fn IntegerHistogram::total(Self) -> Int
+
+pub struct IntegerObjective {
+  values : Array[Int]
+  directions : Array[PortfolioDirection]
+}
+pub fn IntegerObjective::compare(Self, Self) -> Int
+pub fn IntegerObjective::dominates(Self, Self) -> Bool
+pub fn IntegerObjective::length(Self) -> Int
+pub fn IntegerObjective::values(Self) -> Array[Int]
+
+pub struct IntegerRegression {
+  slope_scaled : Int
+  intercept : Int
+  error : Int
+}
+pub fn IntegerRegression::error(Self) -> Int
+pub fn IntegerRegression::intercept(Self) -> Int
+pub fn IntegerRegression::slope_scaled(Self) -> Int
+
+pub struct IntegerSet {
+  values : Array[Int]
+}
+pub fn IntegerSet::contains(Self, Int) -> Bool
+pub fn IntegerSet::contiguous(Self) -> Bool
+pub fn IntegerSet::describe(Self) -> String
+pub fn IntegerSet::difference(Self, Self) -> Self
+pub fn IntegerSet::insert(Self, Int) -> Bool
+pub fn IntegerSet::intersection(Self, Self) -> Self
+pub fn IntegerSet::length(Self) -> Int
+pub fn IntegerSet::maximum(Self) -> Int?
+pub fn IntegerSet::minimum(Self) -> Int?
+pub fn IntegerSet::remove(Self, Int) -> Bool
+pub fn IntegerSet::runs(Self) -> Array[(Int, Int)]
+pub fn IntegerSet::subset_of(Self, Self) -> Bool
+pub fn IntegerSet::union(Self, Self) -> Self
+pub fn IntegerSet::values(Self) -> Array[Int]
+
+pub struct IntegerSummary {
+  count : Int
+  total : Int
+  minimum : Int
+  maximum : Int
+  median : Int
+  mean : Int
+}
+pub fn IntegerSummary::count(Self) -> Int
+pub fn IntegerSummary::describe(Self) -> String
+pub fn IntegerSummary::maximum(Self) -> Int
+pub fn IntegerSummary::mean(Self) -> Int
+pub fn IntegerSummary::median(Self) -> Int
+pub fn IntegerSummary::minimum(Self) -> Int
+pub fn IntegerSummary::total(Self) -> Int
 
 pub struct IntervalTask {
   name : String
@@ -856,6 +2295,15 @@ pub struct KnapsackItem {
   selected : Int
 }
 
+pub struct LatinPuzzle {
+  size : Int
+  values : IntMatrix
+}
+pub fn LatinPuzzle::candidates(Self, Int, Int) -> Array[Int]
+pub fn LatinPuzzle::set(Self, Int, Int, Int) -> Bool
+pub fn LatinPuzzle::signature(Self) -> Int
+pub fn LatinPuzzle::solved(Self) -> Bool
+
 pub struct LatinSquare {
   solver : Solver
   cells : Array[Int]
@@ -879,6 +2327,14 @@ pub fn LinearBuilder::post_equals(Self, ModelBuilder, Int) -> Unit
 pub fn LinearBuilder::term(Self, Int, Int) -> Self
 pub fn LinearBuilder::terms(Self) -> Array[(Int, Int)]
 
+pub struct MachineSpec {
+  id : Int
+  name : String
+  capacity : Int
+}
+pub fn MachineSpec::capacity(Self) -> Int
+pub fn MachineSpec::id(Self) -> Int
+
 pub struct MagicSquare {
   solver : Solver
   cells : Array[Int]
@@ -891,6 +2347,41 @@ pub fn MagicSquare::matrix(Self, Solution) -> Array[Array[Int]]
 pub fn MagicSquare::solve(Self) -> Solution?
 pub fn MagicSquare::stats(Self) -> SearchStats
 pub fn MagicSquare::target(Self) -> Int
+
+pub struct ManufacturingInstance {
+  machines : Array[MachineSpec]
+  operations : Array[ManufacturingOperation]
+  setup_matrix : Array[Array[Int]]
+}
+pub fn ManufacturingInstance::machine(Self, Int) -> MachineSpec
+pub fn ManufacturingInstance::machine_count(Self) -> Int
+pub fn ManufacturingInstance::operation(Self, Int) -> ManufacturingOperation
+pub fn ManufacturingInstance::operation_count(Self) -> Int
+
+pub struct ManufacturingOperation {
+  id : Int
+  job : Int
+  sequence : Int
+  machine : Int
+  setup : Int
+  duration : Int
+  family : Int
+  due : Int
+}
+pub fn ManufacturingOperation::job(Self) -> Int
+pub fn ManufacturingOperation::machine(Self) -> Int
+pub fn ManufacturingOperation::sequence(Self) -> Int
+pub fn ManufacturingOperation::total_duration(Self) -> Int
+
+pub struct ManufacturingSchedule {
+  starts : Array[Int]
+  machine_order : Array[Array[Int]]
+}
+pub fn ManufacturingSchedule::machine_sequence(Self, Int) -> Array[Int]
+pub fn ManufacturingSchedule::queue(Self, Int, Int) -> Bool
+pub fn ManufacturingSchedule::set_start(Self, Int, Int) -> Bool
+pub fn ManufacturingSchedule::start(Self, Int) -> Int
+pub fn ManufacturingSchedule::starts(Self) -> Array[Int]
 
 pub struct ModelBuilder {
   solver : Solver
@@ -925,6 +2416,44 @@ pub struct ModelLimits {
   max_domain_size : Int
 }
 
+pub struct ModelReport {
+  name : String
+  variables : Int
+  constraints : Int
+  solved : Bool
+  solutions : Int
+  nodes : Int
+  propagations : Int
+  checks : Int
+  pruned : Int
+  signature : Int
+}
+pub fn ModelReport::constraints(Self) -> Int
+pub fn ModelReport::csv(Self) -> String
+pub fn ModelReport::describe(Self) -> String
+pub fn ModelReport::solutions(Self) -> Int
+pub fn ModelReport::solved(Self) -> Bool
+pub fn ModelReport::variables(Self) -> Int
+pub fn ModelReport::work(Self) -> Int
+
+pub struct ModelSchema {
+  name : String
+  fields : Array[SchemaField]
+}
+pub fn ModelSchema::add(Self, SchemaField) -> Bool
+pub fn ModelSchema::cartesian_size(Self, Int) -> Int
+pub fn ModelSchema::changed_defaults(Self, Array[Int]) -> Array[(Int, Int, Int)]
+pub fn ModelSchema::csv(Self) -> String
+pub fn ModelSchema::defaults(Self) -> Array[Int]
+pub fn ModelSchema::describe(Self) -> String
+pub fn ModelSchema::field(Self, Int) -> SchemaField
+pub fn ModelSchema::find(Self, String) -> SchemaField?
+pub fn ModelSchema::length(Self) -> Int
+pub fn ModelSchema::names(Self) -> Array[String]
+pub fn ModelSchema::report(Self) -> ValidationReport
+pub fn ModelSchema::signature(Self) -> Int
+pub fn ModelSchema::validate(Self, Array[Int]) -> ValidationReport
+
 pub struct ModelSnapshot {
   domains : Array[Domain]
   max_solutions : Int
@@ -946,6 +2475,28 @@ pub fn NQueens::render(Self, Solution) -> String
 pub fn NQueens::solve(Self) -> Solution?
 pub fn NQueens::solve_all(Self, Int) -> Array[Solution]
 pub fn NQueens::stats(Self) -> SearchStats
+
+pub struct NonogramLine {
+  length : Int
+  clues : Array[Int]
+}
+pub fn NonogramLine::matches(Self, Array[Int]) -> Bool
+pub fn NonogramLine::minimum_used(Self) -> Int
+pub fn NonogramLine::patterns(Self) -> Array[Array[Int]]
+
+pub struct NonogramPuzzle {
+  rows : Array[NonogramLine]
+  columns : Array[NonogramLine]
+  cells : IntMatrix
+}
+pub fn NonogramPuzzle::cell(Self, Int, Int) -> Int
+pub fn NonogramPuzzle::column_count(Self) -> Int
+pub fn NonogramPuzzle::consistent(Self) -> Bool
+pub fn NonogramPuzzle::fix(Self, Int, Int, Int) -> Bool
+pub fn NonogramPuzzle::propagate(Self) -> Int
+pub fn NonogramPuzzle::render(Self) -> String
+pub fn NonogramPuzzle::row_count(Self) -> Int
+pub fn NonogramPuzzle::solved(Self) -> Bool
 
 pub struct Objective {
   terms : Array[ObjectiveTerm]
@@ -969,6 +2520,71 @@ pub fn ObjectiveTerm::direction(Self) -> OptimizationDirection
 pub fn ObjectiveTerm::variable(Self) -> Int
 pub fn ObjectiveTerm::weight(Self) -> Int
 
+pub struct OperationalLedger {
+  records : Array[OperationalRecord]
+}
+pub fn OperationalLedger::append(Self, OperationalRecord) -> Bool
+pub fn OperationalLedger::attempt_sum(Self) -> Int
+pub fn OperationalLedger::clear(Self) -> Unit
+pub fn OperationalLedger::contains(Self, String) -> Bool
+pub fn OperationalLedger::count_failure(Self) -> Int
+pub fn OperationalLedger::count_retryable(Self) -> Int
+pub fn OperationalLedger::count_state(Self, OperationalState) -> Int
+pub fn OperationalLedger::count_success(Self) -> Int
+pub fn OperationalLedger::count_terminal(Self) -> Int
+pub fn OperationalLedger::duration_sum(Self) -> Int
+pub fn OperationalLedger::error_codes(Self) -> Array[Int]
+pub fn OperationalLedger::failure_rate(Self) -> Int
+pub fn OperationalLedger::filter_state(Self, OperationalState) -> Array[OperationalRecord]
+pub fn OperationalLedger::get(Self, String) -> OperationalRecord?
+pub fn OperationalLedger::index_of(Self, String) -> Int?
+pub fn OperationalLedger::is_empty(Self) -> Bool
+pub fn OperationalLedger::keys(Self) -> Array[String]
+pub fn OperationalLedger::len(Self) -> Int
+pub fn OperationalLedger::max_duration(Self) -> Int
+pub fn OperationalLedger::min_duration(Self) -> Int?
+pub fn OperationalLedger::output_sum(Self) -> Int
+pub fn OperationalLedger::remove(Self, String) -> Bool
+pub fn OperationalLedger::signature(Self) -> Int
+pub fn OperationalLedger::success_rate(Self) -> Int
+pub fn OperationalLedger::summary(Self) -> OperationalSummary
+pub fn OperationalLedger::throughput(Self) -> Int
+pub fn OperationalLedger::upsert(Self, OperationalRecord) -> Bool
+pub fn OperationalLedger::validate(Self) -> Bool
+
+pub struct OperationalRecord {
+  key : String
+  state : OperationalState
+  started_at : Int
+  finished_at : Int
+  attempts : Int
+  output_count : Int
+  error_code : Int
+}
+
+pub enum OperationalState {
+  LedgerQueued
+  LedgerRunning
+  LedgerSucceeded
+  LedgerFailed
+  LedgerSkipped
+}
+
+pub struct OperationalSummary {
+  total : Int
+  queued : Int
+  running : Int
+  succeeded : Int
+  failed : Int
+  skipped : Int
+  duration : Int
+  outputs : Int
+  attempts : Int
+  success_rate : Int
+  failure_rate : Int
+  throughput : Int
+}
+
 pub enum OptimizationDirection {
   MinimizeValue
   MaximizeValue
@@ -981,6 +2597,64 @@ pub struct OptimizationResult {
 pub fn OptimizationResult::objective(Self) -> Int
 pub fn OptimizationResult::solution(Self) -> Solution
 
+pub struct PlanningCapacityPoint {
+  resource : Int
+  time : Int
+  load : Int
+  capacity : Int
+}
+pub fn PlanningCapacityPoint::overloaded(Self) -> Bool
+pub fn PlanningCapacityPoint::residual(Self) -> Int
+
+pub struct PlanningDependency {
+  before : Int
+  after : Int
+  lag : Int
+}
+pub fn PlanningDependency::after(Self) -> Int
+pub fn PlanningDependency::before(Self) -> Int
+pub fn PlanningDependency::lag(Self) -> Int
+
+pub struct PlanningTask {
+  id : Int
+  name : String
+  duration : Int
+  resource : Int
+  demand : Int
+  release : Int
+  due : Int
+}
+pub fn PlanningTask::contains(Self, Int, Int) -> Bool
+pub fn PlanningTask::demand(Self) -> Int
+pub fn PlanningTask::duration(Self) -> Int
+pub fn PlanningTask::id(Self) -> Int
+pub fn PlanningTask::name(Self) -> String
+pub fn PlanningTask::resource(Self) -> Int
+pub fn PlanningTask::valid_window(Self) -> Bool
+pub fn PlanningTask::with_window(Self, Int, Int) -> Self
+
+pub struct PortfolioAudit {
+  candidates : Int
+  distinct : Int
+  retained : Int
+  pareto : Int
+}
+pub fn PortfolioAudit::candidates(Self) -> Int
+pub fn PortfolioAudit::describe(Self) -> String
+pub fn PortfolioAudit::pareto(Self) -> Int
+pub fn PortfolioAudit::retained(Self) -> Int
+
+pub enum PortfolioDirection {
+  Minimize
+  Maximize
+}
+
+pub struct PortfolioObjectiveTerm {
+  name : String
+  direction : PortfolioDirection
+  weight : Int
+}
+
 pub struct ProbeBatch {
   results : Array[AssumptionResult]
 }
@@ -989,6 +2663,145 @@ pub fn ProbeBatch::length(Self) -> Int
 pub fn ProbeBatch::results(Self) -> Array[AssumptionResult]
 pub fn ProbeBatch::satisfiable_count(Self) -> Int
 pub fn ProbeBatch::unsatisfiable_count(Self) -> Int
+
+pub struct ProjectPlan {
+  solver : Solver
+  tasks : Array[PlanningTask]
+  starts : Array[Int]
+  dependencies : Array[PlanningDependency]
+  horizon : Int
+  capacities : Array[Int]
+}
+pub fn ProjectPlan::add_dependency(Self, Int, Int, Int) -> Bool
+pub fn ProjectPlan::critical_path_length(Self) -> Int
+pub fn ProjectPlan::critical_task_count(Self) -> Int
+pub fn ProjectPlan::critical_tasks(Self) -> Array[Int]
+pub fn ProjectPlan::dependencies(Self) -> Array[PlanningDependency]
+pub fn ProjectPlan::dependencies_valid(Self) -> Bool
+pub fn ProjectPlan::describe(Self) -> String
+pub fn ProjectPlan::earliest_starts(Self) -> Array[Int]
+pub fn ProjectPlan::fix_start(Self, Int, Int) -> Bool
+pub fn ProjectPlan::has_cycle(Self) -> Bool
+pub fn ProjectPlan::horizon(Self) -> Int
+pub fn ProjectPlan::is_valid_schedule(Self, Array[Int]) -> Bool
+pub fn ProjectPlan::latest_starts(Self) -> Array[Int]
+pub fn ProjectPlan::makespan(Self, Array[Int]) -> Int
+pub fn ProjectPlan::maximum_demand(Self) -> Int
+pub fn ProjectPlan::post_all_resource_non_overlap(Self) -> Unit
+pub fn ProjectPlan::post_resource_non_overlap(Self, Int) -> Bool
+pub fn ProjectPlan::predecessors(Self, Int) -> Array[Int]
+pub fn ProjectPlan::render(Self, Array[Int]) -> String
+pub fn ProjectPlan::resource_profile(Self, Array[Int], Int) -> Array[Int]
+pub fn ProjectPlan::resource_utilization(Self, Array[Int], Int) -> Int
+pub fn ProjectPlan::schedule(Self, Solution) -> Array[Int]
+pub fn ProjectPlan::signature(Self) -> Int
+pub fn ProjectPlan::slacks(Self) -> Array[Int]
+pub fn ProjectPlan::solve(Self) -> Solution?
+pub fn ProjectPlan::solve_all(Self, Int) -> Array[Solution]
+pub fn ProjectPlan::solver(Self) -> Solver
+pub fn ProjectPlan::start_variable(Self, Int) -> Int
+pub fn ProjectPlan::stats(Self) -> SearchStats
+pub fn ProjectPlan::successors(Self, Int) -> Array[Int]
+pub fn ProjectPlan::task(Self, Int) -> PlanningTask
+pub fn ProjectPlan::task_at(Self, Array[Int], Int, Int) -> Int?
+pub fn ProjectPlan::task_count(Self) -> Int
+pub fn ProjectPlan::tasks_on_resource(Self, Int) -> Array[Int]
+pub fn ProjectPlan::topological_order(Self) -> Array[Int]?
+pub fn ProjectPlan::total_load(Self) -> Int
+pub fn ProjectPlan::total_work(Self) -> Int
+pub fn ProjectPlan::validate_schedule(Self, Array[Int]) -> Array[String]
+
+pub struct PruningExplanation {
+  reasons : Array[PruningReason]
+}
+pub fn PruningExplanation::add(Self, PruningReason) -> Bool
+pub fn PruningExplanation::describe(Self) -> String
+pub fn PruningExplanation::explains(Self, Int, Int) -> Bool
+pub fn PruningExplanation::for_variable(Self, Int) -> Array[PruningReason]
+pub fn PruningExplanation::length(Self) -> Int
+
+pub struct PruningReason {
+  variable : Int
+  value : Int
+  constraint : String
+  detail : String
+}
+
+pub struct QualityGateResult {
+  name : String
+  status : QualityStatus
+  observed : Int
+  threshold : Int
+  detail : String
+}
+pub fn QualityGateResult::describe(Self) -> String
+pub fn QualityGateResult::passed(Self) -> Bool
+pub fn QualityGateResult::status_name(Self) -> String
+
+pub struct QualityReview {
+  results : Array[QualityGateResult]
+}
+pub fn QualityReview::add(Self, QualityGateResult) -> Unit
+pub fn QualityReview::describe(Self) -> String
+pub fn QualityReview::failure_count(Self) -> Int
+pub fn QualityReview::length(Self) -> Int
+pub fn QualityReview::maximum(Self, String, Int, Int, String) -> Unit
+pub fn QualityReview::minimum(Self, String, Int, Int, String) -> Unit
+pub fn QualityReview::note(Self, String, String) -> Unit
+pub fn QualityReview::passed(Self) -> Bool
+pub fn QualityReview::require(Self, String, Bool, String) -> Unit
+pub fn QualityReview::results(Self) -> Array[QualityGateResult]
+pub fn QualityReview::score(Self) -> Int
+pub fn QualityReview::signature(Self) -> Int
+pub fn QualityReview::status_line(Self) -> String
+pub fn QualityReview::warning_count(Self) -> Int
+
+pub enum QualityStatus {
+  GatePassed
+  GateWarning
+  GateFailed
+}
+
+pub struct QueueSimulation {
+  horizon : Int
+  entities : Array[SimulationEntity]
+  queue : EventQueue
+  trace : Array[SimulationEvent]
+  mut next_sequence : Int
+  mut server_free : Int
+  mut total_wait : Int
+  mut completed : Int
+}
+pub fn QueueSimulation::arrivals(Self) -> Array[Int]
+pub fn QueueSimulation::average_wait(Self) -> Int
+pub fn QueueSimulation::completed(Self) -> Int
+pub fn QueueSimulation::current_time(Self) -> Int
+pub fn QueueSimulation::describe(Self) -> String
+pub fn QueueSimulation::entity_trace(Self, Int) -> Array[SimulationEvent]
+pub fn QueueSimulation::pending(Self) -> Int
+pub fn QueueSimulation::run(Self) -> Int
+pub fn QueueSimulation::schedule(Self, Int, Int, Int, SimulationEventKind, Int) -> Bool
+pub fn QueueSimulation::schedule_maintenance(Self, Int, Int) -> Bool
+pub fn QueueSimulation::service_times(Self) -> Array[Int]
+pub fn QueueSimulation::signature(Self) -> Int
+pub fn QueueSimulation::step(Self) -> SimulationEvent?
+pub fn QueueSimulation::total_wait(Self) -> Int
+pub fn QueueSimulation::trace(Self) -> Array[SimulationEvent]
+pub fn QueueSimulation::utilization(Self) -> Int
+
+pub struct RecipeResult {
+  mut posted : Int
+  mut rejected : Int
+}
+pub fn RecipeResult::describe(Self) -> String
+pub fn RecipeResult::ok(Self) -> Bool
+pub fn RecipeResult::posted(Self) -> Int
+pub fn RecipeResult::rejected(Self) -> Int
+
+pub struct RelationPair {
+  left : Int
+  right : Int
+}
 
 pub struct RelationTable {
   arity : Int
@@ -1001,6 +2814,21 @@ pub fn RelationTable::contains(Self, Array[Int]) -> Bool
 pub fn RelationTable::describe(Self) -> String
 pub fn RelationTable::post(Self, Solver, Array[Int]) -> Bool
 pub fn RelationTable::rows(Self) -> Array[Array[Int]]
+
+pub struct ResourceMetric {
+  resource : Int
+  capacity : Int
+  total_load : Int
+  peak_load : Int
+  busy_slots : Int
+  horizon : Int
+}
+pub fn ResourceMetric::average_percent(Self) -> Int
+pub fn ResourceMetric::bottleneck_score(Self) -> Int
+pub fn ResourceMetric::describe(Self) -> String
+pub fn ResourceMetric::idle_slots(Self) -> Int
+pub fn ResourceMetric::overloaded(Self) -> Bool
+pub fn ResourceMetric::peak_percent(Self) -> Int
 
 pub struct ResourceSchedule {
   solver : Solver
@@ -1026,6 +2854,71 @@ pub fn ResourceSchedule::stats(Self) -> SearchStats
 pub fn ResourceSchedule::summary(Self) -> String
 pub fn ResourceSchedule::task_count(Self) -> Int
 pub fn ResourceSchedule::task_name(Self, Int) -> String
+
+pub struct ResourceTimeline {
+  horizon : Int
+  capacities : Array[Int]
+  intervals : Array[TimelineInterval]
+}
+pub fn ResourceTimeline::add(Self, TimelineInterval) -> Bool
+pub fn ResourceTimeline::conflicts(Self) -> Array[(Int, Int)]
+pub fn ResourceTimeline::contains_id(Self, Int) -> Bool
+pub fn ResourceTimeline::feasible(Self) -> Bool
+pub fn ResourceTimeline::find_slot(Self, Int, Int) -> Int?
+pub fn ResourceTimeline::free_slots(Self, Int) -> Array[(Int, Int)]
+pub fn ResourceTimeline::length(Self) -> Int
+pub fn ResourceTimeline::load_at(Self, Int, Int) -> Int
+pub fn ResourceTimeline::makespan(Self) -> Int
+pub fn ResourceTimeline::on_resource(Self, Int) -> Array[TimelineInterval]
+pub fn ResourceTimeline::ordered(Self, Int) -> Array[TimelineInterval]
+pub fn ResourceTimeline::overloads(Self, Int) -> Array[Int]
+pub fn ResourceTimeline::profile(Self, Int) -> Array[Int]
+pub fn ResourceTimeline::render(Self) -> String
+pub fn ResourceTimeline::signature(Self) -> Int
+pub fn ResourceTimeline::total_work(Self) -> Int
+pub fn ResourceTimeline::utilization(Self, Int) -> Int
+
+pub struct ResultCounter {
+  mut accepted : Int
+  mut rejected : Int
+}
+pub fn ResultCounter::accept(Self, Bool) -> Bool
+pub fn ResultCounter::describe(Self) -> String
+pub fn ResultCounter::passed(Self) -> Bool
+pub fn ResultCounter::success_rate(Self) -> Int
+pub fn ResultCounter::total(Self) -> Int
+
+pub enum RiskBand {
+  LowRisk
+  MediumRisk
+  HighRisk
+  CriticalRisk
+}
+
+pub struct RiskItem {
+  id : Int
+  name : String
+  likelihood : Int
+  impact : Int
+  mitigation : Int
+}
+pub fn RiskItem::gross_score(Self) -> Int
+pub fn RiskItem::residual_score(Self) -> Int
+
+pub struct RiskScenario {
+  items : Array[RiskItem]
+  budget : Int
+}
+pub fn RiskScenario::above(Self, Int) -> Array[Int]
+pub fn RiskScenario::band_counts(Self) -> Array[Int]
+pub fn RiskScenario::describe(Self) -> String
+pub fn RiskScenario::gross_score(Self) -> Int
+pub fn RiskScenario::maximum_residual(Self) -> Int
+pub fn RiskScenario::mitigate(Self, Int, Int) -> Bool
+pub fn RiskScenario::mitigation_value(Self, Int, Int) -> Int
+pub fn RiskScenario::priority_order(Self) -> Array[Int]
+pub fn RiskScenario::residual_score(Self) -> Int
+pub fn RiskScenario::signature(Self) -> Int
 
 pub struct RosterModel {
   solver : Solver
@@ -1072,6 +2965,65 @@ pub fn RosterScore::describe(Self) -> String
 pub fn RosterScore::spread(Self) -> Int
 pub fn RosterScore::violations(Self) -> Int
 
+pub struct RoutingInstance {
+  points : Array[RoutingPoint]
+  depot : Int
+  vehicles : Int
+  capacities : Array[Int]
+  distances : Array[Array[Int]]
+}
+pub fn RoutingInstance::capacity(Self, Int) -> Int
+pub fn RoutingInstance::customers(Self) -> Array[Int]
+pub fn RoutingInstance::depot(Self) -> Int
+pub fn RoutingInstance::distance(Self, Int, Int) -> Int
+pub fn RoutingInstance::location_count(Self) -> Int
+pub fn RoutingInstance::point(Self, Int) -> RoutingPoint
+pub fn RoutingInstance::total_demand(Self) -> Int
+pub fn RoutingInstance::vehicle_count(Self) -> Int
+
+pub struct RoutingPlan {
+  routes : Array[VehicleRoute]
+}
+pub fn RoutingPlan::append(Self, Int, Int) -> Bool
+pub fn RoutingPlan::describe(Self) -> String
+pub fn RoutingPlan::locate(Self, Int) -> (Int, Int)?
+pub fn RoutingPlan::route(Self, Int) -> VehicleRoute
+pub fn RoutingPlan::route_count(Self) -> Int
+pub fn RoutingPlan::routes(Self) -> Array[VehicleRoute]
+pub fn RoutingPlan::visited(Self) -> Array[Int]
+
+pub struct RoutingPoint {
+  id : Int
+  x : Int
+  y : Int
+  demand : Int
+  service : Int
+  ready : Int
+  due : Int
+}
+pub fn RoutingPoint::demand(Self) -> Int
+pub fn RoutingPoint::id(Self) -> Int
+pub fn RoutingPoint::service(Self) -> Int
+pub fn RoutingPoint::valid_window(Self) -> Bool
+pub fn RoutingPoint::with_service(Self, Int) -> Self
+pub fn RoutingPoint::with_window(Self, Int, Int) -> Self
+pub fn RoutingPoint::x(Self) -> Int
+pub fn RoutingPoint::y(Self) -> Int
+
+pub struct RoutingReport {
+  distance : Int
+  makespan : Int
+  load : Int
+  visits : Int
+  errors : Array[String]
+}
+pub fn RoutingReport::describe(Self) -> String
+pub fn RoutingReport::distance(Self) -> Int
+pub fn RoutingReport::feasible(Self) -> Bool
+pub fn RoutingReport::load(Self) -> Int
+pub fn RoutingReport::makespan(Self) -> Int
+pub fn RoutingReport::visits(Self) -> Int
+
 pub struct Scenario {
   name : String
   solver : Solver
@@ -1082,6 +3034,25 @@ pub fn Scenario::matches(Self, Array[Solution]) -> Bool
 pub fn Scenario::name(Self) -> String
 pub fn Scenario::solve(Self, Int) -> Array[Solution]
 pub fn Scenario::stats(Self) -> SearchStats
+
+pub struct ScenarioAxis {
+  name : String
+  values : Array[Int]
+}
+
+pub struct ScenarioEvaluation {
+  scenario : WhatIfScenario
+  score : Int
+  feasible : Bool
+}
+pub fn ScenarioEvaluation::feasible(Self) -> Bool
+pub fn ScenarioEvaluation::name(Self) -> String
+pub fn ScenarioEvaluation::score(Self) -> Int
+
+pub struct ScenarioValue {
+  name : String
+  value : Int
+}
 
 pub struct SchedulePreference {
   day : Int
@@ -1114,6 +3085,16 @@ pub fn ScheduleProblem::solve(Self) -> Solution?
 pub fn ScheduleProblem::solve_all(Self, Int) -> Array[Solution]
 pub fn ScheduleProblem::solver(Self) -> Solver
 pub fn ScheduleProblem::stats(Self) -> SearchStats
+
+pub struct SchemaField {
+  id : Int
+  name : String
+  lower : Int
+  upper : Int
+  default : Int
+}
+pub fn SchemaField::domain(Self) -> Domain
+pub fn SchemaField::valid(Self) -> Bool
 
 pub struct ScoredSolution {
   solution : Solution
@@ -1201,6 +3182,16 @@ pub fn SequenceModel::upper_bound(Self) -> Int
 pub fn SequenceModel::values_of(Self, Solution) -> Array[Int]
 pub fn SequenceModel::variables(Self) -> Array[Int]
 
+pub struct SequenceReport {
+  length : Int
+  minimum : Int
+  maximum : Int
+  transitions : Int
+  runs : Int
+  checksum : Int
+}
+pub fn SequenceReport::describe(Self) -> String
+
 pub struct SequenceSummary {
   values : Array[Int]
   total : Int
@@ -1217,6 +3208,34 @@ pub fn SequenceSummary::runs(Self) -> Int
 pub fn SequenceSummary::total(Self) -> Int
 pub fn SequenceSummary::values(Self) -> Array[Int]
 
+pub struct ServiceMetrics {
+  orders : Int
+  on_time : Int
+  late : Int
+  total_lateness : Int
+  maximum_lateness : Int
+  quantity : Int
+  cost : Int
+}
+pub fn ServiceMetrics::average_lateness(Self) -> Int
+pub fn ServiceMetrics::describe(Self) -> String
+pub fn ServiceMetrics::late_percent(Self) -> Int
+pub fn ServiceMetrics::meets_target(Self, Int) -> Bool
+pub fn ServiceMetrics::on_time_percent(Self) -> Int
+
+pub struct ServiceObservation {
+  id : Int
+  promised : Int
+  actual : Int
+  quantity : Int
+  penalty : Int
+}
+pub fn ServiceObservation::cost(Self) -> Int
+pub fn ServiceObservation::describe(Self) -> String
+pub fn ServiceObservation::earliness(Self) -> Int
+pub fn ServiceObservation::lateness(Self) -> Int
+pub fn ServiceObservation::on_time(Self) -> Bool
+
 pub struct SetCovering {
   solver : Solver
   selected : Array[Int]
@@ -1230,6 +3249,31 @@ pub fn SetCovering::render(Self, Solution) -> String
 pub fn SetCovering::selected_sets(Self, Solution) -> Array[Int]
 pub fn SetCovering::solve(Self) -> OptimizationResult?
 pub fn SetCovering::stats(Self) -> SearchStats
+
+pub struct SimulationEntity {
+  id : Int
+  arrival : Int
+  service : Int
+  priority : Int
+}
+
+pub struct SimulationEvent {
+  time : Int
+  sequence : Int
+  entity : Int
+  resource : Int
+  kind : SimulationEventKind
+  payload : Int
+}
+pub fn SimulationEvent::kind_name(Self) -> String
+
+pub enum SimulationEventKind {
+  Arrival
+  ServiceStart
+  ServiceFinish
+  Maintenance
+  CustomEvent
+}
 
 pub struct Solution {
   values : Array[Int]
@@ -1249,6 +3293,41 @@ pub fn SolutionDelta::before(Self) -> Int
 pub fn SolutionDelta::describe(Self) -> String
 pub fn SolutionDelta::variable(Self) -> Int
 
+pub struct SolutionPool {
+  records : Array[SolutionRecord]
+  limit : Int
+  terms : Array[PortfolioObjectiveTerm]
+}
+pub fn SolutionPool::best(Self) -> SolutionRecord?
+pub fn SolutionPool::contains(Self, Array[Int]) -> Bool
+pub fn SolutionPool::insert(Self, SolutionRecord) -> Bool
+pub fn SolutionPool::is_full(Self) -> Bool
+pub fn SolutionPool::length(Self) -> Int
+pub fn SolutionPool::objective_count(Self) -> Int
+pub fn SolutionPool::pareto_front(Self) -> Array[SolutionRecord]
+pub fn SolutionPool::records(Self) -> Array[SolutionRecord]
+pub fn SolutionPool::signature(Self) -> Int
+pub fn SolutionPool::worst(Self) -> SolutionRecord?
+
+pub struct SolutionRecord {
+  solution : Solution
+  values : Array[Int]
+  scores : Array[Int]
+  rank : Int
+}
+pub fn SolutionRecord::scores(Self) -> Array[Int]
+pub fn SolutionRecord::signature(Self) -> Int
+pub fn SolutionRecord::values(Self) -> Array[Int]
+
+pub struct SolveAttempt {
+  index : Int
+  solved : Bool
+  solution_count : Int
+  work : Int
+  signature : Int
+}
+pub fn SolveAttempt::describe(Self) -> String
+
 pub struct SolveAudit {
   satisfiable : Bool
   solutions : Int
@@ -1260,6 +3339,24 @@ pub fn SolveAudit::describe(Self) -> String
 pub fn SolveAudit::satisfiable(Self) -> Bool
 pub fn SolveAudit::solutions(Self) -> Int
 pub fn SolveAudit::stats(Self) -> SearchStats
+
+pub struct SolveSession {
+  name : String
+  attempts : Array[SolveAttempt]
+  signatures : Array[Int]
+}
+pub fn SolveSession::all_solved(Self) -> Bool
+pub fn SolveSession::attempts(Self) -> Array[SolveAttempt]
+pub fn SolveSession::average_work(Self) -> Int
+pub fn SolveSession::describe(Self) -> String
+pub fn SolveSession::deterministic(Self) -> Bool
+pub fn SolveSession::length(Self) -> Int
+pub fn SolveSession::maximum_work(Self) -> Int
+pub fn SolveSession::review(Self) -> QualityReview
+pub fn SolveSession::run(Self, Solver, Int) -> SolveAttempt
+pub fn SolveSession::signature(Self) -> Int
+pub fn SolveSession::total_work(Self) -> Int
+pub fn SolveSession::work_stable(Self, Int) -> Bool
 
 pub enum SolveStatus {
   SolvedStatus
@@ -1370,6 +3467,76 @@ pub fn Sudoku::solve_all(Self, Int) -> Array[Solution]
 pub fn Sudoku::solver(Self) -> Solver
 pub fn Sudoku::stats(Self) -> SearchStats
 
+pub struct TextDocument {
+  lines : Array[String]
+}
+pub fn TextDocument::line(Self, Int) -> String
+pub fn TextDocument::line_count(Self) -> Int
+pub fn TextDocument::lines(Self) -> Array[String]
+pub fn TextDocument::nonempty_lines(Self) -> Array[Int]
+pub fn TextDocument::without_comments(Self, String) -> Array[String]
+
+pub struct TextToken {
+  value : String
+  line : Int
+  column : Int
+}
+pub fn TextToken::column(Self) -> Int
+pub fn TextToken::line(Self) -> Int
+pub fn TextToken::value(Self) -> String
+
+pub struct TimelineInterval {
+  id : Int
+  resource : Int
+  start : Int
+  end : Int
+  weight : Int
+  label : String
+}
+pub fn TimelineInterval::contains(Self, Int) -> Bool
+pub fn TimelineInterval::duration(Self) -> Int
+pub fn TimelineInterval::valid(Self) -> Bool
+
+pub struct UtilityItem {
+  id : Int
+  weight : Int
+  value : Int
+}
+pub fn UtilityItem::density(Self, Int) -> Int
+
+pub struct ValidationIssue {
+  code : String
+  path : String
+  message : String
+  severity : ValidationSeverity
+}
+pub fn ValidationIssue::code(Self) -> String
+pub fn ValidationIssue::describe(Self) -> String
+pub fn ValidationIssue::message(Self) -> String
+pub fn ValidationIssue::path(Self) -> String
+pub fn ValidationIssue::severity_name(Self) -> String
+
+pub struct ValidationReport {
+  issues : Array[ValidationIssue]
+}
+pub fn ValidationReport::describe(Self) -> String
+pub fn ValidationReport::error(Self, String, String, String) -> Unit
+pub fn ValidationReport::error_count(Self) -> Int
+pub fn ValidationReport::info(Self, String, String, String) -> Unit
+pub fn ValidationReport::issues(Self) -> Array[ValidationIssue]
+pub fn ValidationReport::length(Self) -> Int
+pub fn ValidationReport::push(Self, ValidationIssue) -> Unit
+pub fn ValidationReport::signature(Self) -> Int
+pub fn ValidationReport::valid(Self) -> Bool
+pub fn ValidationReport::warning(Self, String, String, String) -> Unit
+pub fn ValidationReport::warning_count(Self) -> Int
+
+pub enum ValidationSeverity {
+  ValidationInfo
+  ValidationWarning
+  ValidationError
+}
+
 pub enum ValueHeuristic {
   AscendingValues
   DescendingValues
@@ -1400,6 +3567,71 @@ pub enum VariableHeuristic {
   MaximumDegree
   DomOverDegree
 } derive(Eq, @debug.Debug)
+
+pub struct VehicleRoute {
+  vehicle : Int
+  stops : Array[Int]
+}
+pub fn VehicleRoute::insert(Self, Int, Int) -> Bool
+pub fn VehicleRoute::length(Self) -> Int
+pub fn VehicleRoute::push_unique(Self, Int) -> Bool
+pub fn VehicleRoute::remove(Self, Int) -> Bool
+pub fn VehicleRoute::reverse_segment(Self, Int, Int) -> Bool
+pub fn VehicleRoute::stops(Self) -> Array[Int]
+pub fn VehicleRoute::vehicle(Self) -> Int
+
+pub struct WeightedGraph {
+  vertices : Int
+  directed : Bool
+  weights : Array[Array[Int]]
+}
+pub fn WeightedGraph::add_edge(Self, Int, Int, Int) -> Bool
+pub fn WeightedGraph::average_degree(Self) -> Int
+pub fn WeightedGraph::breadth_first_order(Self, Int) -> Array[Int]
+pub fn WeightedGraph::connected(Self, Int, Int) -> Bool
+pub fn WeightedGraph::connected_components(Self) -> Array[Array[Int]]
+pub fn WeightedGraph::degree(Self, Int) -> Int
+pub fn WeightedGraph::depth_first_order(Self, Int) -> Array[Int]
+pub fn WeightedGraph::dijkstra_distances(Self, Int) -> Array[Int]
+pub fn WeightedGraph::dijkstra_predecessors(Self, Int) -> Array[Int]
+pub fn WeightedGraph::distance_sum(Self, Int) -> Int
+pub fn WeightedGraph::edge_count(Self) -> Int
+pub fn WeightedGraph::edge_list(Self) -> String
+pub fn WeightedGraph::edge_weight(Self, Int, Int) -> Int?
+pub fn WeightedGraph::edges(Self) -> Array[GraphEdge]
+pub fn WeightedGraph::floyd_warshall(Self) -> Array[Array[Int]]
+pub fn WeightedGraph::graph_signature(Self) -> Int
+pub fn WeightedGraph::greedy_coloring(Self) -> Array[Int]
+pub fn WeightedGraph::has_directed_cycle(Self) -> Bool
+pub fn WeightedGraph::has_edge(Self, Int, Int) -> Bool
+pub fn WeightedGraph::highest_degree_vertex(Self) -> Int?
+pub fn WeightedGraph::is_directed(Self) -> Bool
+pub fn WeightedGraph::is_simple_graph(Self) -> Bool
+pub fn WeightedGraph::isolated_vertex_count(Self) -> Int
+pub fn WeightedGraph::matrix(Self) -> Array[Array[Int]]
+pub fn WeightedGraph::maximum_flow(Self, Int, Int) -> Int
+pub fn WeightedGraph::maximum_outgoing_weight(Self, Int) -> Int
+pub fn WeightedGraph::minimum_outgoing_weight(Self, Int) -> Int
+pub fn WeightedGraph::minimum_spanning_forest(Self) -> Array[GraphEdge]
+pub fn WeightedGraph::neighbors(Self, Int) -> Array[Int]
+pub fn WeightedGraph::reaches_all(Self, Int) -> Bool
+pub fn WeightedGraph::remove_edge(Self, Int, Int) -> Bool
+pub fn WeightedGraph::shortest_path(Self, Int, Int) -> Array[Int]?
+pub fn WeightedGraph::topological_order(Self) -> Array[Int]?
+pub fn WeightedGraph::transitive_closure(Self) -> Array[Array[Bool]]
+pub fn WeightedGraph::valid_coloring(Self, Array[Int]) -> Bool
+pub fn WeightedGraph::valid_vertex(Self, Int) -> Bool
+pub fn WeightedGraph::vertex_count(Self) -> Int
+
+pub struct WhatIfScenario {
+  name : String
+  values : Array[ScenarioValue]
+}
+pub fn WhatIfScenario::delta(Self, String, Int) -> Self
+pub fn WhatIfScenario::get(Self, String) -> Int?
+pub fn WhatIfScenario::set(Self, String, Int) -> Bool
+pub fn WhatIfScenario::signature(Self) -> Int
+pub fn WhatIfScenario::values(Self) -> Array[ScenarioValue]
 
 // Type aliases
 
