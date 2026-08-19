@@ -1,45 +1,65 @@
-name: MoonBit check and test
+name: MoonBit quality
 
 on:
   pull_request:
   push:
-    branches: [main, master]
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   quality:
-    permissions:
-      contents: read
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out source
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Install MoonBit on Unix
+
+      - name: Install latest stable MoonBit on Unix
         if: matrix.os != 'windows-latest'
+        shell: bash
         run: |
           curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
           echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
-      - name: Install MoonBit on Windows
+
+      - name: Install latest stable MoonBit on Windows
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
           Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
           irm https://cli.moonbitlang.com/install/powershell.ps1 | iex
           "C:\Users\runneradmin\.moon\bin" | Out-File -FilePath $env:GITHUB_PATH -Append
-      - name: Verify toolchain
-        run: moon version --all
-      - name: Check all backends
-        run: moon check --target all --deny-warn
-      - name: Test all backends
-        run: moon test --target all --deny-warn
-      - name: Verify formatting
+
+      - name: Verify toolchain and dependencies
+        shell: bash
         run: |
-          moon fmt --warn
-          git diff --exit-code
+          moon version --all
+          moon update
+
+      - name: Check every backend
+        shell: bash
+        run: moon check --target all --deny-warn
+
+      - name: Test every backend with coverage
+        shell: bash
+        run: moon test --target all --deny-warn --enable-coverage
+
+      - name: Run deterministic application benchmarks
+        shell: bash
+        run: moon run --target native cmd/benchmark
+
+      - name: Verify formatting
+        shell: bash
+        run: moon fmt --check
+
       - name: Verify generated interfaces
+        shell: bash
         run: |
           moon info
           git diff --exit-code
