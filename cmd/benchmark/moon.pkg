@@ -1,5 +1,5 @@
 import {
-  "mjfmjf/moonbit_constraint" @constraint,
+  "lqhy1234567/moonbit_constraint" @constraint,
 }
 
 pkgtype(kind: "executable")
