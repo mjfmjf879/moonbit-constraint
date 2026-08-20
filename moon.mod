@@ -9,7 +9,7 @@
 //   "moonbitlang/x@0.4.6",
 // }
 
-name = "lqhy1234567/moonbit_constraint"
+name = "mjfmjf879/moonbit_constraint"
 
 version = "0.1.0"
 

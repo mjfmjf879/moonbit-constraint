@@ -1,9 +1,9 @@
 // import {
-//   "mengjiafu/moonbit_constraint" @lib,
+//   "mjfmjf879/moonbit_constraint" @lib,
 // }
 
 import {
-  "lqhy1234567/moonbit_constraint" @constraint,
+  "mjfmjf879/moonbit_constraint" @constraint,
 }
 
 pkgtype(kind: "executable")
