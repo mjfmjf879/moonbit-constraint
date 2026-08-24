@@ -40,11 +40,27 @@ jobs:
         shell: bash
         run: |
           moon version --all
+          moonc_version="$(moonc -v 2>&1 | sed -n \
+            -e 's/^moonc v\([0-9][0-9.]*\).*/\1/p' \
+            -e 's/^v\([0-9][0-9.]*\).*/\1/p' | head -n 1)"
+          test -n "$moonc_version"
+          awk -v version="$moonc_version" 'BEGIN {
+            split(version, part, ".")
+            if (part[1] < 0 || (part[1] == 0 && part[2] < 10) ||
+                (part[1] == 0 && part[2] == 10 && part[3] < 9)) {
+              print "moonc >= v0.10.9 is required; found v" version > "/dev/stderr"
+              exit 1
+            }
+          }'
           moon update
 
       - name: Check every backend
         shell: bash
         run: moon check --target all --deny-warn
+
+      - name: Build every backend
+        shell: bash
+        run: moon build --target all --deny-warn
 
       - name: Test every backend with coverage
         shell: bash
@@ -53,6 +69,10 @@ jobs:
       - name: Run deterministic application benchmarks
         shell: bash
         run: moon run --target native cmd/benchmark
+
+      - name: Run the command-line example
+        shell: bash
+        run: moon run --target native cmd/main
 
       - name: Verify formatting
         shell: bash

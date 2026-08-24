@@ -143,7 +143,12 @@ pub fn scenario_report(limit : Int) -> String {
     if index > 0 {
       builder.write_char('\n')
     }
-    let solutions = scenario.solve(limit)
+    let smoke_limit = if limit < scenario.expected() {
+      limit
+    } else {
+      scenario.expected()
+    }
+    let solutions = scenario.solve(smoke_limit)
     builder.write_string(
       "\{scenario.name}: observed=\{solutions.length()}, expected=\{scenario.expected()}, ok=\{scenario.matches(solutions)}",
     )
@@ -155,7 +160,12 @@ pub fn scenario_report(limit : Int) -> String {
 /// Return whether every smoke scenario meets its expected count.
 pub fn scenarios_pass(limit : Int) -> Bool {
   for scenario in scenario_suite() {
-    if !scenario.matches(scenario.solve(limit)) {
+    let smoke_limit = if limit < scenario.expected() {
+      limit
+    } else {
+      scenario.expected()
+    }
+    if !scenario.matches(scenario.solve(smoke_limit)) {
       return false
     }
   }

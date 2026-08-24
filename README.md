@@ -78,7 +78,7 @@ moon run --target native cmd/benchmark
 
 ## 测试
 
-测试覆盖核心域运算、边界耗尽、线性/关系约束、解枚举、优化模型和应用场景，并包含 malformed input、矛盾模型、负数域、空解空间、容量边界、路由/图/流/时间线边界和节点预算等用例。
+测试覆盖核心域运算、边界耗尽、线性/关系约束、解枚举、优化模型和应用场景，并包含 malformed input、矛盾模型、负数域、空解空间、容量边界、路由/图/流/时间线边界和节点预算等用例。跨模块集成测试还会验证制造调度、场景自检、资源指标、数据模式、文本适配以及基准回归检测。
 
 ```text
 moon check --target all --deny-warn
@@ -89,7 +89,7 @@ moon info
 
 ## CI
 
-GitHub Actions 在 Ubuntu、macOS 和 Windows 上安装官方 stable MoonBit 工具链，执行工具链检查、依赖更新、全目标 check/test、格式检查、接口生成检查和基准回归。工作流位于 [`.github/workflows/test.yml`](.github/workflows/test.yml)。
+GitHub Actions 在 Ubuntu、macOS 和 Windows 上安装官方 stable MoonBit 工具链，并强制要求 `moonc >= v0.10.9`。流水线执行依赖更新、全目标 check/build/test、CLI 示例、格式检查、接口生成检查和基准回归。工作流位于 [`.github/workflows/test.yml`](.github/workflows/test.yml)。
 
 ## 许可证
 

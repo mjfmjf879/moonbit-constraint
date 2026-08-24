@@ -1326,8 +1326,6 @@ pub fn sort_integers(Array[Int]) -> Unit
 
 pub fn sort_scenario_evaluations(Array[ScenarioEvaluation], Bool) -> Array[ScenarioEvaluation]
 
-pub fn source_scale_evidence(Int, Int) -> EvidenceBundle
-
 pub fn speedup_percent(Int, Int) -> Int?
 
 pub fn strong_all_different(Array[Int]) -> ConstraintSet

@@ -36,12 +36,13 @@ test {
 moon run cmd/main
 moon run --target native cmd/benchmark
 moon check --target all --deny-warn
+moon build --target all --deny-warn
 moon test --target all --deny-warn
 moon fmt
 moon info
 ```
 
-求解流程为“有限域与模型 → 约束传播 → 启发式分支 → 完整赋值校验”；应用模块负责领域模型、结果渲染、校验报告和运行指标。基准原始结果见 [`BENCHMARKS.md`](BENCHMARKS.md)，CI 工作流见 [`.github/workflows/test.yml`](.github/workflows/test.yml)。
+求解流程为“有限域与模型 → 约束传播 → 启发式分支 → 完整赋值校验”；应用模块负责领域模型、结果渲染、校验报告和运行指标。跨平台 CI 要求 `moonc >= v0.10.9`，并执行全目标检查、构建、测试及确定性基准。基准原始结果见 [`BENCHMARKS.md`](BENCHMARKS.md)，CI 工作流见 [`.github/workflows/test.yml`](.github/workflows/test.yml)。
 
 ## 许可证
 

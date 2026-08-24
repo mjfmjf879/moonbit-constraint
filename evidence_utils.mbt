@@ -156,16 +156,6 @@ pub fn EvidenceBundle::exact(
 }
 
 ///|
-/// Build source-scale evidence.
-pub fn source_scale_evidence(lines : Int, target : Int) -> EvidenceBundle {
-  let bundle = evidence_bundle()
-  bundle.minimum(
-    "production-source", "noncomment-nonblank-lines", lines, target,
-  )
-  bundle
-}
-
-///|
 /// Build benchmark evidence.
 pub fn benchmark_evidence(
   suite : BenchmarkArtifactSuite,
